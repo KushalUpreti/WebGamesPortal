@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+
+.GameCard {
+  width: 174px;
+  height: 225px;
+  background-color: #1f1d1d;
+  color: white;
+  border-radius: 3%;
+  margin: 5px 5px 0 0;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+  box-shadow: -2px -2px 30px 2px red, 2px 2px 30px 2px blue;
+}
+
+.GameCard img {
+  margin-top: 20px;
+  height: 140px;
+  width: 165px;
+  border-radius: 10px;
+}
+
+.GameCard h3 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.GameCard:hover {
+  transform: scale(1.04);
+  box-shadow: -2px -2px 30px 2px blue, 2px 2px 30px 2px red;
+}

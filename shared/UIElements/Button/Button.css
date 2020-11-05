@@ -1,0 +1,30 @@
+.button {
+  font: inherit;
+  width: 50px;
+  padding: 7px;
+  height: 35px;
+  border: 1px solid white;
+  border-radius: 4px;
+  background: #222020;
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease-out;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover,
+.button:active {
+  background: #ff4343;
+  border-color: #ff4343;
+}
+
+.search {
+  height: 20px;
+  width: 20px;
+}

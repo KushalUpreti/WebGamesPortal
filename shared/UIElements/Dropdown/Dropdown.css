@@ -1,0 +1,13 @@
+Select {
+  padding: 0.25em;
+  border: 0;
+  border-bottom: 2px solid red;
+  font-weight: bold;
+  border-radius: 0;
+  width: 150px;
+  height: 30px;
+}
+
+*:focus {
+  outline: none;
+}
