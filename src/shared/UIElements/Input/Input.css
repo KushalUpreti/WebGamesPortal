@@ -1,0 +1,12 @@
+Input {
+  padding: 7px 7px 0 6px;
+  /* font size determines the size */
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: antiquewhite;
+}
+
+Input:focus {
+  outline: none;
+}
