@@ -27,7 +27,7 @@ const Gamepage = (props) => {
 
     return (
         <>
-            <h2 style={{ color: "white" }}>{props.location.title}</h2>
+            <h2 style={{ color: "white", paddingLeft: "10%" }}>{props.location.title}</h2>
             <Container marginTop={0}>
                 <IFrame path={props.location.data}>
 
