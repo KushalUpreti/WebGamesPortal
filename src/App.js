@@ -9,7 +9,7 @@ import CategoryPage from './pages/Containers/CategoryPage';
 function App() {
 
   return (
-    <BrowserRouter basename="/WebGamesPortal/">
+    <BrowserRouter basename="/">
 
       <div className="App">
         <Header />
