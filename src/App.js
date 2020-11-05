@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <Header />
 
-        <Route path="/WebGamesPortal" exact>
+        <Route path="/WebGamesPortal/" exact>
           <Homepage />
         </Route>
 
