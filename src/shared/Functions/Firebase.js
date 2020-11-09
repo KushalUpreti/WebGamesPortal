@@ -1,10 +1,10 @@
+import dotenv from 'dotenv'
 import firebase from 'firebase';
-
-let stateFunction = null;
-let state = null;
+import "firebase/auth";
+dotenv.config()
 
 export var config = {
-    apiKey: "AIzaSyCa21G1mEhrJKmoPLRZ8hbJikyI4lGdY5Y",
+    apiKey: "AIzaSyC1iIknhchQD0_l92tVQXI6wk1NMLc2VPE",
     authDomain: "dif-instantgames.firebaseapp.com",
     databaseURL: "https://dif-instantgames.firebaseio.com/",
     storageBucket: "dif-instantgames.appspot.com",
@@ -12,6 +12,20 @@ export var config = {
 
 firebase.initializeApp(config);
 export default firebase;
+
+export const auth = firebase.auth();
+const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const signInWithGoogle = () => {
+    auth.signInWithPopup(googleProvider).then((res) => {
+        console.log(res.user);
+        console.log(auth);
+    }).catch((error) => {
+        console.log(error.message)
+    })
+}
+
+let state = null;
+let setState = null;
 
 function receive_data_all(snapshot) {
     const newArray = [];
@@ -32,7 +46,7 @@ function receive_data_all(snapshot) {
         newArray.push(newObject);
 
     });
-    stateFunction({
+    setState({
         ...state,
         gamelist: [...newArray], //Needs fixing
         dataLoaded: true
@@ -42,9 +56,9 @@ function receive_data_all(snapshot) {
 // (ii)
 // Request 'All' games
 // To start from top, use: startAt = "<space>"
-export function request_all(startAt, size, stateFunc, stateInput) {
-    stateFunction = stateFunc;
+export function request_all(startAt, size, stateFunction, stateInput) {
     state = stateInput;
+    setState = stateFunction;
 
     var database;
     database = firebase.database().ref('/Game Collection/all');
@@ -54,10 +68,9 @@ export function request_all(startAt, size, stateFunc, stateInput) {
     database.once('value').then(receive_data_all);      // Callback at (i)
 }
 
-export function search(keyword, size, stateFunc, stateInput) {
-    stateFunction = stateFunc;
+export function search(keyword, size, stateFunction, stateInput) {
     state = stateInput;
-
+    setState = stateFunction;
 
     keyword = keyword.toLowerCase();
     var database;
@@ -71,13 +84,16 @@ export function search(keyword, size, stateFunc, stateInput) {
             var gameId = childSnapshot.key;
 
             //Start at 'gameId', stop at size 1
-            request_all(gameId, 1, stateFunction, state,);         // Using function (ii)
+            request_all(gameId, 1, setState, state,);         // Using function (ii)
         });
     });
 }
 
-export function request_category(category, startAt, size, stateFunction, state) {
+export function request_category(category, startAt, size, stateFunction, stateInput) {
     category = category.toLowerCase();
+
+    state = stateInput;
+    setState = stateFunction;
 
     var database;
     database = firebase.database().ref('/Game Collection/' + category);
@@ -90,13 +106,16 @@ export function request_category(category, startAt, size, stateFunction, state) 
             var gameId = childSnapshot.key;
 
             //Start at 'gameId', stop at size 1
-            request_all(gameId, size, stateFunction, state);          // Using function (ii)
+            request_all(gameId, size, setState, state);          // Using function (ii)
         });
     });
 }
 
 
-function request_discover_cards() {
+export function request_discover_cards(stateFunction, stateInput) {
+    state = stateInput;
+    setState = stateFunction;
+
     var database;
     database = firebase.database().ref('/Discover Cards');
 
@@ -116,15 +135,17 @@ function request_discover_cards() {
             newArray.push(discCard);
             // Now load the games from the category: request_category(category, START_AT, SIZE)
         });
-        // setState({
-        //     ...state,
-        //     discoverList: [...newArray],
-        //     dataLoaded: true
-        // })
+        setState({
+            ...state,
+            discoverList: [...newArray],
+            dataLoaded: true
+        })
     });
 }
 
-function request_included_category_list(stateFunction) {
+export function request_included_category_list(stateFunction) {
+    state = stateFunction;
+
     var database;
     database = firebase.database().ref('/Game Collection/Categories Included');
     let newArray = [];
@@ -143,8 +164,4 @@ function request_included_category_list(stateFunction) {
     });
 
 }
-
-
-
-
 

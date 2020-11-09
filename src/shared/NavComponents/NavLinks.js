@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import "./Navlinks.css"
+import "./Navlinks.css";
+import { signInWithGoogle } from '../../shared/Functions/Firebase'
 
 const NavLinks = (props) => {
     return (
@@ -13,7 +14,7 @@ const NavLinks = (props) => {
                     <NavLink to="/contact">CONTACT US</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/login">AUTHENTICATE</NavLink>
+                    <button onClick={signInWithGoogle} to="/auth">AUTHENTICATE</button>
                 </li>
             </ul>
         </>

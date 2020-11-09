@@ -5,14 +5,15 @@ import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
 import SearchContext from '../../shared/Contexts/SearchContext';
 import GameCard from '../../shared/UIElements/GameCard/GameCard';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
-import firebase, { /*request_all, search, request_category*/ } from '../../shared/Functions/FirebaseQuery';
-import { withRouter } from 'react-router'
+import { request_category, request_included_category_list, search, request_all } from '../../shared/Functions/Firebase';
+import { withRouter } from 'react-router';
+import { addScroll } from '../../shared/Functions/LoadMore';
 
 const CategoryPage = (props) => {
     const params = new URLSearchParams(props.location.search);
     let category = params.get("category");
 
-    const [state, stateFunction] = useState({
+    const [state, setState] = useState({
         gameList: [],
         searchKey: "",
         dataLoaded: false
@@ -23,18 +24,19 @@ const CategoryPage = (props) => {
     });
 
     useEffect(() => {
-        request_included_category_list();
+        request_included_category_list(categoryFunction);
         const params = new URLSearchParams(props.location.search);
+
         let category = params.get("category");
-        request_category(category, " ", 24);
+        request_category(category, " ", 24, categoryFunction, categoryState);
     }, []);
 
     const searchHandler = (event) => {
         if (event.target.value.length > 0) {
-            search(event.target.value, 12);
+            search(event.target.value, 12, setState, state);
 
         } else {
-            request_all(" ", state.itemCount);
+            request_all(" ", state.itemCount, setState, state);
         }
     }
 
@@ -67,7 +69,6 @@ const CategoryPage = (props) => {
             <h1 style={{ color: "white", paddingLeft: "10%", marginTop: "40px" }}>{category}</h1>
             <Container marginTop="15px">
 
-
                 {
                     state.dataLoaded ? state.gameList.map(item => {
                         return <GameCard
@@ -83,103 +84,6 @@ const CategoryPage = (props) => {
             </Container>
         </>
     );
-
-    function receive_data_all(snapshot) {
-        const newArray = [];
-        snapshot.forEach(function (childSnapshot) {
-            var gameId = childSnapshot.key;
-            var name = (childSnapshot.val().name);
-            var url = (childSnapshot.val().url);
-            var imageUrl = (childSnapshot.val().imageUrl);
-            var category = (childSnapshot.val().category);
-
-            var newObject = {
-                gameId,
-                name,
-                url,
-                imageUrl,
-                category
-            }
-            newArray.push(newObject);
-
-        });
-        stateFunction({
-            ...state,
-            gameList: [...newArray], //Needs fixing
-            dataLoaded: true
-        })
-    }
-
-    // (ii)
-    // Request 'All' games
-    // To start from top, use: startAt = "<space>"
-    function request_all(startAt, size) {
-
-        var database;
-        database = firebase.database().ref('/Game Collection/all');
-
-        database = database.orderByKey().startAt(startAt).limitToFirst(size);
-
-        database.once('value').then(receive_data_all);      // Callback at (i)
-    }
-
-    function search(keyword, size) {
-
-        keyword = keyword.toLowerCase();
-        var database;
-        database = firebase.database().ref('/Game Collection/search index');
-
-        database = database.orderByValue().startAt(keyword).limitToFirst(size);
-
-        database.once('value').then(function (snapshot) {
-
-            snapshot.forEach(function (childSnapshot) {
-                var gameId = childSnapshot.key;
-
-                //Start at 'gameId', stop at size 1
-                request_all(gameId, 1);         // Using function (ii)
-            });
-        });
-    }
-
-    function request_category(category, startAt, size) {
-        category = category.toLowerCase();
-
-        var database;
-        database = firebase.database().ref('/Game Collection/' + category);
-
-        database = database.orderByKey().startAt(startAt).limitToFirst(size);
-
-        database.once('value').then(function (snapshot) {
-
-            snapshot.forEach(function (childSnapshot) {
-                var gameId = childSnapshot.key;
-
-                //Start at 'gameId', stop at size 1
-                request_all(gameId, size);          // Using function (ii)
-            });
-        });
-    }
-
-    function request_included_category_list() {
-        var database;
-        database = firebase.database().ref('/Game Collection/Categories Included');
-        let newArray = [];
-        database.once('value').then(function (snapshot) {
-
-            // List with inluded categories: snapshot
-
-            // Get values like
-            snapshot.forEach(function (childSnapshot) {
-                var category = childSnapshot.val();
-                newArray.push(category);
-            });
-            categoryFunction({
-                categoryList: [...newArray],
-            })
-        });
-
-    }
 }
 
 export default withRouter(CategoryPage);
