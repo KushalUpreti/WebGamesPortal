@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from '../../Containers/Container';
 import GameCard from '../GameCard/GameCard';
-import firebase from '../../Functions/FirebaseQuery';
+import firebase from '../../Functions/Firebase';
 import Spinner from '../Spinner/Spinner';
 import { NavLink } from 'react-router-dom'
 import './DiscoverCard.css'

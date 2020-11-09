@@ -13,15 +13,24 @@
   margin: 1rem;
 }
 
-.NavLinks a {
+.NavLinks a,
+button {
   border: 1px solid transparent;
   color: #292929;
   text-decoration: none;
   padding: 0.5rem;
+  font-size: medium;
 }
 
 .NavLinks a:hover,
 .NavLinks a.active {
+  background: #1d1d1a;
+  border-color: #292929;
+  color: white;
+  border-bottom: 3px solid #ff0505;
+}
+
+.NavLinks button:hover {
   background: #1d1d1a;
   border-color: #292929;
   color: white;
@@ -43,14 +52,12 @@
   }
 
   .NavLinks button {
-    border: 1px solid white;
     color: white;
     background: transparent;
   }
 
-  .NavLinks button:hover,
-  .NavLinks button:active {
+  .NavLinks button:hover {
     background: #1f1e1c;
-    color: #292929;
+    color: white;
   }
 }

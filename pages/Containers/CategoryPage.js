@@ -5,14 +5,15 @@ import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
 import SearchContext from '../../shared/Contexts/SearchContext';
 import GameCard from '../../shared/UIElements/GameCard/GameCard';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
-import firebase, { /*request_all, search, request_category*/ } from '../../shared/Functions/FirebaseQuery';
-import { withRouter } from 'react-router'
+import firebase from '../../shared/Functions/Firebase';
+import { withRouter } from 'react-router';
+import { addScroll } from '../../shared/Functions/LoadMore';
 
 const CategoryPage = (props) => {
     const params = new URLSearchParams(props.location.search);
     let category = params.get("category");
 
-    const [state, stateFunction] = useState({
+    const [state, setState] = useState({
         gameList: [],
         searchKey: "",
         dataLoaded: false
@@ -31,7 +32,7 @@ const CategoryPage = (props) => {
 
     const searchHandler = (event) => {
         if (event.target.value.length > 0) {
-            search(event.target.value, 12);
+            // search(event.target.value, 12, setState, state);
 
         } else {
             request_all(" ", state.itemCount);
@@ -66,7 +67,6 @@ const CategoryPage = (props) => {
             </Container>
             <h1 style={{ color: "white", paddingLeft: "10%", marginTop: "40px" }}>{category}</h1>
             <Container marginTop="15px">
-
 
                 {
                     state.dataLoaded ? state.gameList.map(item => {
@@ -103,7 +103,7 @@ const CategoryPage = (props) => {
             newArray.push(newObject);
 
         });
-        stateFunction({
+        setState({
             ...state,
             gameList: [...newArray], //Needs fixing
             dataLoaded: true
@@ -181,5 +181,7 @@ const CategoryPage = (props) => {
 
     }
 }
+
+
 
 export default withRouter(CategoryPage);
