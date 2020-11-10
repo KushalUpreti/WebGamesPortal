@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/WebGamesPortal/static/css/main.354ca688.chunk.css",
-    "main.js": "/WebGamesPortal/static/js/main.5f7e3df8.chunk.js",
-    "main.js.map": "/WebGamesPortal/static/js/main.5f7e3df8.chunk.js.map",
+    "main.css": "/WebGamesPortal/static/css/main.1ae53dad.chunk.css",
+    "main.js": "/WebGamesPortal/static/js/main.9b3b35e0.chunk.js",
+    "main.js.map": "/WebGamesPortal/static/js/main.9b3b35e0.chunk.js.map",
     "runtime-main.js": "/WebGamesPortal/static/js/runtime-main.fe7811ee.js",
     "runtime-main.js.map": "/WebGamesPortal/static/js/runtime-main.fe7811ee.js.map",
-    "static/js/2.f583d1a3.chunk.js": "/WebGamesPortal/static/js/2.f583d1a3.chunk.js",
-    "static/js/2.f583d1a3.chunk.js.map": "/WebGamesPortal/static/js/2.f583d1a3.chunk.js.map",
+    "static/js/2.f552971b.chunk.js": "/WebGamesPortal/static/js/2.f552971b.chunk.js",
+    "static/js/2.f552971b.chunk.js.map": "/WebGamesPortal/static/js/2.f552971b.chunk.js.map",
     "static/js/3.f444108f.chunk.js": "/WebGamesPortal/static/js/3.f444108f.chunk.js",
     "static/js/3.f444108f.chunk.js.map": "/WebGamesPortal/static/js/3.f444108f.chunk.js.map",
     "index.html": "/WebGamesPortal/index.html",
-    "static/css/main.354ca688.chunk.css.map": "/WebGamesPortal/static/css/main.354ca688.chunk.css.map",
-    "static/js/2.f583d1a3.chunk.js.LICENSE.txt": "/WebGamesPortal/static/js/2.f583d1a3.chunk.js.LICENSE.txt"
+    "static/css/main.1ae53dad.chunk.css.map": "/WebGamesPortal/static/css/main.1ae53dad.chunk.css.map",
+    "static/js/2.f552971b.chunk.js.LICENSE.txt": "/WebGamesPortal/static/js/2.f552971b.chunk.js.LICENSE.txt",
+    "static/media/download.080a54fc.png": "/WebGamesPortal/static/media/download.080a54fc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.fe7811ee.js",
-    "static/js/2.f583d1a3.chunk.js",
-    "static/css/main.354ca688.chunk.css",
-    "static/js/main.5f7e3df8.chunk.js"
+    "static/js/2.f552971b.chunk.js",
+    "static/css/main.1ae53dad.chunk.css",
+    "static/js/main.9b3b35e0.chunk.js"
   ]
 }
