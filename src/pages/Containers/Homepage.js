@@ -8,8 +8,6 @@ import Spinner from '../../shared/UIElements/Spinner/Spinner';
 import { search, request_included_category_list, request_all, request_discover_cards } from '../../shared/Functions/Firebase';
 import { withRouter } from 'react-router';
 
-
-
 const Homepage = (props) => {
 
     const [state, setState] = useState({

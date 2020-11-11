@@ -5,13 +5,16 @@ import { withRouter } from 'react-router';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
 import { request_category } from '../../shared/Functions/Firebase';
 import GameCard from '../../shared/UIElements/GameCard/GameCard.js';
+// import { addScroll } from '../../shared/Functions/LoadMore';
 
 
 const Gamepage = (props) => {
 
-    const [state, stateFunction] = useState({
+    const [state, setState] = useState({
         gamelist: [],
-        dataLoaded: false
+        dataLoaded: false,
+        loadingMore: false,
+        lastIndex: " "
     });
 
     useEffect(() => {
@@ -21,8 +24,8 @@ const Gamepage = (props) => {
         if (index !== -1) {
             category = category.slice(0, index);
         }
-
-        request_category(category, " ", 24, stateFunction, state);
+        request_category(category, state.lastIndex, 24, setState, state);
+        // document.addEventListener('scroll', addScroll(category,state.lastIndex,setState,state));
 
     }, []);
 
@@ -47,8 +50,8 @@ const Gamepage = (props) => {
                             category={item.category}
                         ></GameCard>
                     }) : <Spinner />
-
                 }
+                {state.loadingMore ? <Spinner /> : null}
             </Container>
         </>)
 }
