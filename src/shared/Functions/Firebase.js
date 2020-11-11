@@ -17,7 +17,6 @@ export const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const signInWithGoogle = (signInFunction) => {
     auth.signInWithPopup(googleProvider).then((res) => {
-        console.log(res.user);
         localStorage.setItem("userCred", JSON.stringify(res.user));
         signInFunction();
 
@@ -106,7 +105,6 @@ export function request_category(category, startAt, size, stateFunction, stateIn
 
         snapshot.forEach(function (childSnapshot) {
             var gameId = childSnapshot.key;
-            console.log(gameId);
             //Start at 'gameId', stop at size 1
             request_all(gameId, size, setState, state);          // Using function (ii)
         });

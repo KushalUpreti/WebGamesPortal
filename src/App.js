@@ -19,7 +19,6 @@ function App() {
       setState({
         loggedIn: true
       });
-      console.log("Logged in");
     }
   }, []);
 
@@ -31,13 +30,15 @@ function App() {
   }, []);
 
   const logOut = useCallback(() => {
+    localStorage.removeItem("userCred");
+    console.log("Signed in");
     setState({
       loggedIn: false
     })
   }, []);
 
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
 
       <AuthContext.Provider value={{
         loggedIn: state.loggedIn,

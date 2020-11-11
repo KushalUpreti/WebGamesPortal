@@ -9,7 +9,6 @@ export function addScroll(/*category, lastIndex, request_cat*/) {
         const [category, request_cat] = callback();
         newIndex = newIndex + 24;
         request_cat(category, " ", newIndex);
-        console.log(newIndex + " Called");
     }
 }
 
