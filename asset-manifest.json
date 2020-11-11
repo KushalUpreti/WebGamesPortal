@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/WebGamesPortal/static/css/main.1ae53dad.chunk.css",
-    "main.js": "/WebGamesPortal/static/js/main.9980e90b.chunk.js",
-    "main.js.map": "/WebGamesPortal/static/js/main.9980e90b.chunk.js.map",
-    "runtime-main.js": "/WebGamesPortal/static/js/runtime-main.fe7811ee.js",
-    "runtime-main.js.map": "/WebGamesPortal/static/js/runtime-main.fe7811ee.js.map",
-    "static/js/2.f552971b.chunk.js": "/WebGamesPortal/static/js/2.f552971b.chunk.js",
-    "static/js/2.f552971b.chunk.js.map": "/WebGamesPortal/static/js/2.f552971b.chunk.js.map",
-    "static/js/3.f444108f.chunk.js": "/WebGamesPortal/static/js/3.f444108f.chunk.js",
-    "static/js/3.f444108f.chunk.js.map": "/WebGamesPortal/static/js/3.f444108f.chunk.js.map",
+    "main.css": "/WebGamesPortal/static/css/main.cdff18da.chunk.css",
+    "main.js": "/WebGamesPortal/static/js/main.d1107214.chunk.js",
+    "main.js.map": "/WebGamesPortal/static/js/main.d1107214.chunk.js.map",
+    "runtime-main.js": "/WebGamesPortal/static/js/runtime-main.5feb2d74.js",
+    "runtime-main.js.map": "/WebGamesPortal/static/js/runtime-main.5feb2d74.js.map",
+    "static/js/2.2668b79b.chunk.js": "/WebGamesPortal/static/js/2.2668b79b.chunk.js",
+    "static/js/2.2668b79b.chunk.js.map": "/WebGamesPortal/static/js/2.2668b79b.chunk.js.map",
+    "static/js/3.36e11b3f.chunk.js": "/WebGamesPortal/static/js/3.36e11b3f.chunk.js",
+    "static/js/3.36e11b3f.chunk.js.map": "/WebGamesPortal/static/js/3.36e11b3f.chunk.js.map",
     "index.html": "/WebGamesPortal/index.html",
-    "static/css/main.1ae53dad.chunk.css.map": "/WebGamesPortal/static/css/main.1ae53dad.chunk.css.map",
-    "static/js/2.f552971b.chunk.js.LICENSE.txt": "/WebGamesPortal/static/js/2.f552971b.chunk.js.LICENSE.txt",
-    "static/media/download.080a54fc.png": "/WebGamesPortal/static/media/download.080a54fc.png"
+    "static/css/main.cdff18da.chunk.css.map": "/WebGamesPortal/static/css/main.cdff18da.chunk.css.map",
+    "static/js/2.2668b79b.chunk.js.LICENSE.txt": "/WebGamesPortal/static/js/2.2668b79b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.fe7811ee.js",
-    "static/js/2.f552971b.chunk.js",
-    "static/css/main.1ae53dad.chunk.css",
-    "static/js/main.9980e90b.chunk.js"
+    "static/js/runtime-main.5feb2d74.js",
+    "static/js/2.2668b79b.chunk.js",
+    "static/css/main.cdff18da.chunk.css",
+    "static/js/main.d1107214.chunk.js"
   ]
 }
