@@ -15,64 +15,58 @@ export default firebase;
 
 export const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider()
-export const signInWithGoogle = () => {
+export const signInWithGoogle = (signInFunction) => {
     auth.signInWithPopup(googleProvider).then((res) => {
-        console.log(res.user);
-        console.log(auth);
+        localStorage.setItem("userCred", JSON.stringify(res.user));
+        signInFunction();
+
     }).catch((error) => {
         console.log(error.message)
     })
 }
-
-let state = null;
-let setState = null;
-
-function receive_data_all(snapshot) {
-    const newArray = [];
-    snapshot.forEach(function (childSnapshot) {
-        var gameId = childSnapshot.key;
-        var name = (childSnapshot.val().name);
-        var url = (childSnapshot.val().url);
-        var imageUrl = (childSnapshot.val().imageUrl);
-        var category = (childSnapshot.val().category);
-
-        var newObject = {
-            gameId,
-            name,
-            url,
-            imageUrl,
-            category
-        }
-        newArray.push(newObject);
-
-    });
-    setState({
-        ...state,
-        gamelist: [...newArray], //Needs fixing
-        dataLoaded: true,
-    })
-}
-
-// (ii)
+// (i)
 // Request 'All' games
 // To start from top, use: startAt = "<space>"
-export function request_all(startAt, size, stateFunction, stateInput) {
-    state = stateInput;
-    setState = stateFunction;
+export function request_all(startAt, size, callback) {
 
     var database;
     database = firebase.database().ref('/Game Collection/all');
 
     database = database.orderByKey().startAt(startAt).limitToFirst(size);
 
-    database.once('value').then(receive_data_all);      // Callback at (i)
+    database.once('value').then(callback);
 }
 
-export function search(keyword, size, stateFunction, stateInput) {
-    state = stateInput;
-    setState = stateFunction;
 
+// (ii)
+//Requesting games from category is 2 step process:
+//                          1) Get 'gameId's included in the category
+//                          2) Request the 'gameId' key from 'All' game list
+export function request_category(category, startAt, size, callback) {
+    category = category.toLowerCase();
+
+    var database;
+    database = firebase.database().ref('/Game Collection/' + category);
+
+    database = database.orderByKey().startAt(startAt).limitToFirst(size);
+
+    database.once('value').then(function (snapshot) {
+
+        snapshot.forEach(function (childSnapshot) {
+            var gameId = childSnapshot.key;
+
+            //Start at 'gameId', stop at size 1
+            request_all(gameId, 1, callback);          // Using function (i) & passing 'callback' parameter
+        });
+    });
+}
+
+
+// (iii)
+//Search the database
+export function search(keyword, size, callback) {
     keyword = keyword.toLowerCase();
+
     var database;
     database = firebase.database().ref('/Game Collection/search index');
 
@@ -84,84 +78,69 @@ export function search(keyword, size, stateFunction, stateInput) {
             var gameId = childSnapshot.key;
 
             //Start at 'gameId', stop at size 1
-            request_all(gameId, 1, setState, state,);         // Using function (ii)
+            request_all(gameId, 1, callback);         // Using function (i) & passing 'callback' parameter
         });
     });
 }
 
-export function request_category(category, startAt, size, stateFunction, stateInput) {
-    category = category.toLowerCase();
-
-    state = stateInput;
-    setState = stateFunction;
-
+// (iv)
+// Not all categories are shown in the UI. The database contains list of categories to be shown to users which are updated
+// periodically .
+export function request_included_category_list(callback) {
     var database;
-    database = firebase.database().ref('/Game Collection/' + category);
-
-    database = database.orderByKey().startAt(startAt).limitToFirst(size);
-
-    database.once('value').then(function (snapshot) {
-
-        snapshot.forEach(function (childSnapshot) {
-            var gameId = childSnapshot.key;
-            console.log(gameId);
-            //Start at 'gameId', stop at size 1
-            request_all(gameId, size, setState, state);          // Using function (ii)
-        });
-    });
+    database = firebase.database().ref('/Game Collection/Categories Included');
+    database.once('value').then(callback);
 }
 
-
-export function request_discover_cards(stateFunction, stateInput) {
-    state = stateInput;
-    setState = stateFunction;
-
+// (v)
+// Discover Cards
+export function request_discover_cards(callback) {
     var database;
     database = firebase.database().ref('/Discover Cards');
 
-    database.once('value').then(function (snapshot) {
-
-        // List with inluded categories: snapshot
-        const newArray = [];
-        // Get values like
-        snapshot.forEach(function (childSnapshot) {
-            var title = childSnapshot.val().title;
-            var category = childSnapshot.val().category;
-
-            const discCard = {
-                title,
-                category
-            }
-            newArray.push(discCard);
-            // Now load the games from the category: request_category(category, START_AT, SIZE)
-        });
-        setState({
-            ...state,
-            discoverList: [...newArray],
-            dataLoaded: true
-        })
-    });
+    database.once('value').then(callback);
 }
 
-export function request_included_category_list(stateFunction) {
-    state = stateFunction;
-
+// (vi)
+// Avatar Url
+export function get_avatar_url(UID, callback) {
     var database;
-    database = firebase.database().ref('/Game Collection/Categories Included');
-    let newArray = [];
+    database = firebase.database().ref('/Users/' + UID);
+
     database.once('value').then(function (snapshot) {
-
-        // List with inluded categories: snapshot
-
-        // Get values like
-        snapshot.forEach(function (childSnapshot) {
-            var category = childSnapshot.val();
-            newArray.push(category);
-        });
-        stateFunction({
-            categoryList: [...newArray],
-        })
+        var avatarId = snapshot.val().avatarId;
+        firebase.database().ref('/Avatars/' + avatarId).once("value").then(callback);
     });
-
 }
 
+// (vii)
+// Favorites
+export function get_favorites(UID, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/favorites");
+
+    database.once('value').then(function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var gameId = childSnapshot.key;
+
+            //Start at 'gameId', stop at size 1
+            request_all(gameId, 1, callback);          // Using function (i) & passing 'callback' parameter
+        });
+    });
+}
+
+// (viii)
+// Add to Favorites
+export function add_to_favorites(UID, gameId, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/favorites/" + gameId);
+    database.set(true, callback);       //Setting true to add
+}
+
+// (ix)
+// Remove from favorites
+export function remove_from_favorites(UID, gameId, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/favorites/" + gameId);
+    database.set(null, callback);       //Setting null to remove
+}

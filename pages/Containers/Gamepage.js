@@ -3,9 +3,12 @@ import Container from '../../shared/Containers/Container';
 import IFrame from '../../pages/Components/IFrame';
 import { withRouter } from 'react-router';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
-import { request_category } from '../../shared/Functions/Firebase';
+import { request_category, request_all } from '../../shared/Functions/Firebase';
+import { receive_data_all } from '../../shared/Functions/FirebaseCallbacks';
 import GameCard from '../../shared/UIElements/GameCard/GameCard.js';
-import { addScroll } from '../../shared/Functions/LoadMore';
+import hearts from '../../assets/hearts.png';
+import red from '../../assets/red.png';
+import './Gamepage.css'
 
 
 const Gamepage = (props) => {
@@ -17,23 +20,81 @@ const Gamepage = (props) => {
         lastIndex: " "
     });
 
+    const [link, setLink] = useState({
+        title: "",
+        gameLink: "",
+    })
+
+    const [fav, setfav] = useState({
+        isFav: false
+    });
+
     useEffect(() => {
+        loadGames();
+        // document.addEventListener('scroll', addScroll(category,state.lastIndex,setState,state));
+    }, []);
+
+    const loadGames = () => {
+
         const params = new URLSearchParams(props.location.search);
         let category = params.get("category");
+        let id = params.get("id");
+
         const index = category.indexOf(",");
         if (index !== -1) {
             category = category.slice(0, index);
         }
-        request_category(category, state.lastIndex, 24, setState, state);
-        document.addEventListener('scroll', addScroll(category, state.lastIndex, setState, state));
 
-    }, []);
+        request_all(id, 1, (snapshot) => {
+            let array = receive_data_all(snapshot);
+            setLink({
+                ...link,
+                title: array[0].name,
+                gameLink: array[0].url
+            })
+        })
+
+        request_category(category, " ", 24, (snapshot) => {
+            const array = receive_data_all(snapshot);
+            setState(prevstate => {
+                const newState = {
+                    ...state,
+                    gamelist: [...prevstate.gamelist, ...array],
+                    dataLoaded: true
+                }
+                return newState;
+            })
+        })
+
+    }
+
+    const setFavorite = () => {
+
+        setfav(prevState => {
+
+            const state = {
+                isFav: !prevState.isFav
+            }
+            return state;
+        })
+    }
 
     return (
         <>
-            <h1 style={{ color: "white", paddingLeft: "10%" }}>{props.location.title}</h1>
+            <Container>
+                <h1 style={{ color: "white" }}>{link.title}</h1>
+                <div>
+                    <img className="Favorites_img"
+                        onClick={setFavorite} alt="fav"
+                        src={!fav.isFav ? hearts : red}></img>
+                    <h3 className="Favorites_h3"
+                    >Add to favorites</h3>
+                </div>
+
+            </Container>
+
             <Container marginTop={0}>
-                <IFrame path={props.location.data}>
+                <IFrame path={link.gameLink}>
 
                 </IFrame>
             </Container>
