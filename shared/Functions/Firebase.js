@@ -14,10 +14,14 @@ firebase.initializeApp(config);
 export default firebase;
 
 export const auth = firebase.auth();
+
+
 const googleProvider = new firebase.auth.GoogleAuthProvider()
-export const signInWithGoogle = (signInFunction) => {
+export const signInWithGoogle = (signInFunction, history) => {
     auth.signInWithPopup(googleProvider).then((res) => {
+
         localStorage.setItem("userCred", JSON.stringify(res.user));
+        history.go(0);
         signInFunction();
 
     }).catch((error) => {
@@ -143,4 +147,12 @@ export function remove_from_favorites(UID, gameId, callback) {
     var database;
     database = firebase.database().ref('/Users/' + UID + "/favorites/" + gameId);
     database.set(null, callback);       //Setting null to remove
+}
+
+// (ix)
+// Check if Favorite
+export function check_if_favorite(UID, gameId, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/favorites/" + gameId);
+    database.once('value').then(callback);       //Query to know if game exists
 }
