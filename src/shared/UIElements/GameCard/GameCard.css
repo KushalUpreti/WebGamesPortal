@@ -10,6 +10,7 @@
   transition: 0.1s ease-in-out;
   cursor: pointer;
   box-shadow: -2px -2px 30px 2px red, 2px 2px 30px 2px blue;
+  overflow: hidden;
 }
 
 .GameCard img {
@@ -19,13 +20,16 @@
   border-radius: 10px;
 }
 
-.GameCard h3 {
+.title {
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 23px;
+  font-size: 21px;
   line-height: 1.6rem;
+  margin-top: 10px;
 }
 
 .GameCard:hover {
   transform: scale(1.04);
   box-shadow: -2px -2px 30px 2px blue, 2px 2px 30px 2px red;
 }
+
+

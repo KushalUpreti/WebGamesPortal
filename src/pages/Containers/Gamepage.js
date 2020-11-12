@@ -1,14 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Container from '../../shared/Containers/Container';
 import IFrame from '../../pages/Components/IFrame';
 import { withRouter } from 'react-router';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
-import { request_category, request_all } from '../../shared/Functions/FirebaseTest';
+import { request_category, request_all, check_if_favorite, add_to_favorites, remove_from_favorites } from '../../shared/Functions/Firebase';
 import { receive_data_all } from '../../shared/Functions/FirebaseCallbacks';
 import GameCard from '../../shared/UIElements/GameCard/GameCard.js';
+import hearts from '../../assets/hearts.png';
+import red from '../../assets/red.png';
+import './Gamepage.css';
+import AuthContext from '../../shared/Contexts/AuthContext';
+
 
 
 const Gamepage = (props) => {
+    const auth = useContext(AuthContext);
+    const params = new URLSearchParams(props.location.search);
+    let category = params.get("category");
+    let id = params.get("id")
 
     const [state, setState] = useState({
         gamelist: [],
@@ -22,16 +31,16 @@ const Gamepage = (props) => {
         gameLink: "",
     })
 
+    const [fav, setFav] = useState({
+        isFav: false,
+    });
+
     useEffect(() => {
         loadGames();
-        // document.addEventListener('scroll', addScroll(category,state.lastIndex,setState,state));
+        checkFav();
     }, []);
 
     const loadGames = () => {
-
-        const params = new URLSearchParams(props.location.search);
-        let category = params.get("category");
-        let id = params.get("id");
 
         const index = category.indexOf(",");
         if (index !== -1) {
@@ -58,13 +67,67 @@ const Gamepage = (props) => {
                 return newState;
             })
         })
+    }
 
+    const checkFav = () => {
+
+        if (localStorage.getItem("userCred") !== null) {
+            let userDetails = JSON.parse(localStorage.getItem("userCred"));
+            let UID = userDetails.uid;
+            check_if_favorite(UID, id, function (snapshot) {
+                if (snapshot.val()) {
+                    setFav({
+                        isFav: true
+                    })
+                }
+            });
+        }
+    }
+
+    const setFavorite = () => {
+        let userDetails = JSON.parse(localStorage.getItem("userCred"));
+        let UID = userDetails.uid;
+        if (!fav.isFav) {
+            add_to_favorites(UID, id, function (error) {
+                if (error) {
+                    alert("Adding to favorites failed")
+                } else {
+                    setFav({
+                        isFav: true
+                    })
+                }
+            });
+        } else {
+            remove_from_favorites(UID, id, function (error) {
+                if (error) {
+                    alert("Removing favorites failed...");
+                } else {
+                    setFav({
+                        isFav: false
+                    })
+                }
+            });
+        }
 
     }
 
     return (
         <>
-            <h1 style={{ color: "white", paddingLeft: "10%" }}>{link.title}</h1>
+            <Container>
+                <h1 style={{ color: "white" }}>{link.title}</h1>
+                {
+                    auth.loggedIn ? <div>
+                        <img className="Favorites_img"
+                            onClick={setFavorite} alt="fav"
+                            src={!fav.isFav ? hearts : red}></img>
+                        <h3 className="Favorites_h3"
+                        >{fav.isFav ? "Added to favorites" : "Add to favorites"}</h3>
+                    </div> : null
+                }
+
+
+            </Container>
+
             <Container marginTop={0}>
                 <IFrame path={link.gameLink}>
 

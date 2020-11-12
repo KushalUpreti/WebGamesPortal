@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from '../../Containers/Container';
 import GameCard from '../GameCard/GameCard';
-import { request_category } from '../../Functions/FirebaseTest';
+import { request_category } from '../../Functions/Firebase';
 import { receive_data_all } from '../../Functions/FirebaseCallbacks';
 import Spinner from '../Spinner/Spinner';
 import { NavLink } from 'react-router-dom'

@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, } from 'react';
 import { NavLink } from 'react-router-dom';
 import "./Navlinks.css";
-import { signInWithGoogle } from '../../shared/Functions/FirebaseTest';
+import { signInWithGoogle } from '../Functions/Firebase';
 import AuthContext from '../Contexts/AuthContext';
 import Avatar from '../UIElements/Avatar/Avatar';
+import { useHistory } from 'react-router-dom'
+
 
 const NavLinks = (props) => {
+    const history = useHistory();
+
     const auth = useContext(AuthContext);
     let imgUrl = "";
     let userName = "";
@@ -47,11 +51,12 @@ const NavLinks = (props) => {
                     auth.loggedIn ?
                         <button onClick={() => {
                             auth.signOut();
+                            history.push("/");
                         }}>LOG OUT
                             </button> :
                         <li>
                             <button onClick={() => {
-                                signInWithGoogle(auth.signIn);
+                                signInWithGoogle(auth.signIn, history);
                             }} >LOG IN</button>
                         </li>
                 }

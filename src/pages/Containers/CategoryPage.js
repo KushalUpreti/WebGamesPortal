@@ -5,7 +5,7 @@ import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
 import SearchContext from '../../shared/Contexts/SearchContext';
 import GameCard from '../../shared/UIElements/GameCard/GameCard';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
-import { request_category, request_included_category_list } from '../../shared/Functions/FirebaseTest';
+import { request_category, request_included_category_list } from '../../shared/Functions/Firebase';
 import { receive_data_all, categoryListCallback } from '../../shared/Functions/FirebaseCallbacks';
 import { withRouter } from 'react-router';
 

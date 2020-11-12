@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Container from '../../shared/Containers/Container';
 import Search from '../../shared/UIElements/Search/Search';
 import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
 import SearchContext from '../../shared/Contexts/SearchContext';
 import DiscoverCard from '../../shared/UIElements/DiscoverCards/DiscoverCard';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
-import { search, request_included_category_list, request_discover_cards } from '../../shared/Functions/FirebaseTest';
+import { request_included_category_list, request_discover_cards } from '../../shared/Functions/Firebase';
 import { categoryListCallback, discoverCardCallback } from '../../shared/Functions/FirebaseCallbacks';
 import { withRouter } from 'react-router';
 
@@ -16,7 +16,7 @@ const Homepage = (props) => {
         searchKey: "",
         dataLoaded: false,
         login: false,
-        test: false
+        searching: false
     });
 
     const [categoryState, categoryFunction] = useState({
@@ -27,15 +27,21 @@ const Homepage = (props) => {
         loadAllCategory();
     }, []);
 
-    // const searchHandler = (event) => {
-    //     if (event.target.value.length > 0) {
-    //         search(event.target.value);
-    //     } else {
-    //         request_all(" ", state.itemCount);
-    //     }
-    // }
+    const searchHandler = (event) => {
+        if (event.target.value.length > 0) {
+            setState({
+                ...state,
+                searching: true
+            })
+        } else {
+            setState({
+                ...state,
+                searching: false
+            })
+        }
+    }
 
-    const loadAllCategory = () => {
+    const loadAllCategory = useCallback(() => {
         request_included_category_list((snapshot) => {
             const array = categoryListCallback(snapshot);
             categoryFunction({
@@ -50,7 +56,7 @@ const Homepage = (props) => {
                 dataLoaded: true
             })
         })
-    }
+    }, [state]);
 
     const changeHandler = (event) => {
         const value = event.target.value;
@@ -65,7 +71,7 @@ const Homepage = (props) => {
             <Container>
                 <SearchContext.Provider value={{
                     value: state.searchKey,
-                    // searchItem: searchHandler
+                    searchItem: searchHandler
                 }}>
                     <Search />
                 </SearchContext.Provider>
@@ -78,17 +84,18 @@ const Homepage = (props) => {
 
                 </Dropdown>
             </Container>
-
-            {
-                state.dataLoaded ? state.discoverList.map(item => {
-                    const id = item.title.slice(0, 15);
-                    return <DiscoverCard
-                        key={id}
-                        category={item.category}
-                        title={item.title}
-                    ></DiscoverCard>
-                }) : <Spinner />
-            }
+            {state.searching ? null : <>
+                {
+                    state.dataLoaded ? state.discoverList.map(item => {
+                        const id = item.title.slice(0, 15);
+                        return <DiscoverCard
+                            key={id}
+                            category={item.category}
+                            title={item.title}
+                        ></DiscoverCard>
+                    }) : <Spinner />
+                }
+            </>}
         </>
     );
 }
