@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/WebGamesPortal/static/css/main.b1f22495.chunk.css",
-    "main.js": "/WebGamesPortal/static/js/main.9f7ead54.chunk.js",
-    "main.js.map": "/WebGamesPortal/static/js/main.9f7ead54.chunk.js.map",
+    "main.css": "/WebGamesPortal/static/css/main.ba179c73.chunk.css",
+    "main.js": "/WebGamesPortal/static/js/main.42d2ba3d.chunk.js",
+    "main.js.map": "/WebGamesPortal/static/js/main.42d2ba3d.chunk.js.map",
     "runtime-main.js": "/WebGamesPortal/static/js/runtime-main.106725be.js",
     "runtime-main.js.map": "/WebGamesPortal/static/js/runtime-main.106725be.js.map",
-    "static/js/2.4f26ad88.chunk.js": "/WebGamesPortal/static/js/2.4f26ad88.chunk.js",
-    "static/js/2.4f26ad88.chunk.js.map": "/WebGamesPortal/static/js/2.4f26ad88.chunk.js.map",
+    "static/js/2.06a79eb8.chunk.js": "/WebGamesPortal/static/js/2.06a79eb8.chunk.js",
+    "static/js/2.06a79eb8.chunk.js.map": "/WebGamesPortal/static/js/2.06a79eb8.chunk.js.map",
     "static/js/3.6d1686f1.chunk.js": "/WebGamesPortal/static/js/3.6d1686f1.chunk.js",
     "static/js/3.6d1686f1.chunk.js.map": "/WebGamesPortal/static/js/3.6d1686f1.chunk.js.map",
     "index.html": "/WebGamesPortal/index.html",
-    "static/css/main.b1f22495.chunk.css.map": "/WebGamesPortal/static/css/main.b1f22495.chunk.css.map",
-    "static/js/2.4f26ad88.chunk.js.LICENSE.txt": "/WebGamesPortal/static/js/2.4f26ad88.chunk.js.LICENSE.txt",
+    "static/css/main.ba179c73.chunk.css.map": "/WebGamesPortal/static/css/main.ba179c73.chunk.css.map",
+    "static/js/2.06a79eb8.chunk.js.LICENSE.txt": "/WebGamesPortal/static/js/2.06a79eb8.chunk.js.LICENSE.txt",
     "static/media/hearts.29546ff8.png": "/WebGamesPortal/static/media/hearts.29546ff8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.106725be.js",
-    "static/js/2.4f26ad88.chunk.js",
-    "static/css/main.b1f22495.chunk.css",
-    "static/js/main.9f7ead54.chunk.js"
+    "static/js/2.06a79eb8.chunk.js",
+    "static/css/main.ba179c73.chunk.css",
+    "static/js/main.42d2ba3d.chunk.js"
   ]
 }
