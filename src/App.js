@@ -51,7 +51,7 @@ function App() {
               <Homepage />
             </Route>
 
-            <Route path="/WebGamesPortal/game">
+            <Route path="/WebGamesPortal/game" >
               <Gamepage />
             </Route>
 

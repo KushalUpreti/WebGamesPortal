@@ -9,14 +9,12 @@ const GameCard = (props) => {
             search: `?id=${props.id}&category=${props.category}`,
             data: props.gameUrl,
             title: props.title,
-            firebase: props.fireb
         }} >
             <div className="GameCard" >
                 <img src={props.url} alt="Cover_image"></img>
                 <h3 className="title">{props.title}</h3>
             </div>
         </Link>
-
     );
 }
 

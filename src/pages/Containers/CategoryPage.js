@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Container from '../../shared/Containers/Container';
-import Search from '../../shared/UIElements/Search/Search';
 import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
-import SearchContext from '../../shared/Contexts/SearchContext';
 import GameCard from '../../shared/UIElements/GameCard/GameCard';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
 import { request_category, request_included_category_list } from '../../shared/Functions/Firebase';
@@ -27,7 +25,7 @@ const CategoryPage = (props) => {
 
     useEffect(() => {
         loadStuff();
-    }, []);
+    }, [props]);
 
     const loadStuff = () => {
         request_included_category_list((snapshot) => {
@@ -50,19 +48,14 @@ const CategoryPage = (props) => {
         })
     }
 
-    // const searchHandler = (event) => {
-    //     if (event.target.value.length > 0) {
-    //          search(event.target.value, 12, setState, state);
-
-    //     } else {
-    //         request_all(" ", state.itemCount);
-    //     }
-    // }
-
     const changeHandler = (event) => {
         const value = event.target.value;
+        setState({
+            ...state,
+            gameList: []
+        })
         props.history.push({
-            pathname: "/category",
+            pathname: "/WebGamesPortal/category",
             search: `&category=${value}`
         })
     }
@@ -70,12 +63,7 @@ const CategoryPage = (props) => {
     return (
         <>
             <Container>
-                <SearchContext.Provider value={{
-                    value: state.searchKey,
-                    // searchItem: searchHandler
-                }}>
-                    <Search />
-                </SearchContext.Provider>
+                <div></div>
 
                 <Dropdown change={changeHandler}>
                     <option value="" defaultValue="selected" disabled="disabled">Genre</option>

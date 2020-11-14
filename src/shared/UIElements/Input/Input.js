@@ -11,7 +11,7 @@ const Input = (props) => {
         //         return <input className="Input" id={props.id} type={props.type} placeholder={props.placeholder} onChange={context.searchItem} value={context.value || props.value} />
         //     }}
         // </SearchContext.Consumer>
-        <input className="Input" id={props.id} type={props.type} placeholder={props.placeholder} onChange={search.searchItem} value={search.value || props.value} />
+        <input className="Input" id={props.id} type={props.type} placeholder={props.placeholder} onChange={search.searchItem} />
     );
 }
 

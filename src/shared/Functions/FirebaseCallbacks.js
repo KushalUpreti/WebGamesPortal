@@ -49,3 +49,24 @@ export const categoryListCallback = (snapshot) => {
     });
     return newArray;
 }
+
+export const searchCallback = (snapshot) => {
+    const array = [];
+    snapshot.forEach(function (childSnapshot) {
+        var gameId = childSnapshot.key;
+        var name = (childSnapshot.val().name);
+        var url = (childSnapshot.val().url);
+        var imageUrl = (childSnapshot.val().imageUrl);
+        var category = (childSnapshot.val().category);
+
+        const value = {
+            gameId,
+            name,
+            url,
+            imageUrl,
+            category
+        }
+        array.push(value);
+    });
+    return array;
+};

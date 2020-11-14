@@ -46,7 +46,7 @@ const Gamepage = (props) => {
         if (index !== -1) {
             category = category.slice(0, index);
         }
-
+        let id = params.get("id")
         request_all(id, 1, (snapshot) => {
             let array = receive_data_all(snapshot);
             setLink({
@@ -114,7 +114,7 @@ const Gamepage = (props) => {
     return (
         <>
             <Container>
-                <h1 style={{ color: "white" }}>{link.title}</h1>
+                <h1 style={{ color: "white" }}>{props.location.title || link.title}</h1>
                 {
                     auth.loggedIn ? <div>
                         <img className="Favorites_img"
@@ -129,7 +129,7 @@ const Gamepage = (props) => {
             </Container>
 
             <Container marginTop={0}>
-                <IFrame path={link.gameLink}>
+                <IFrame path={props.location.data || link.gameLink}>
 
                 </IFrame>
             </Container>
