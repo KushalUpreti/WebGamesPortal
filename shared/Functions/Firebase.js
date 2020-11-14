@@ -82,10 +82,11 @@ export function search(keyword, size, callback) {
             var gameId = childSnapshot.key;
 
             //Start at 'gameId', stop at size 1
-            request_all(gameId, 1, callback);         // Using function (i) & passing 'callback' parameter
+            request_all(gameId, 5, callback);         // Using function (i) & passing 'callback' parameter
         });
     });
 }
+
 
 // (iv)
 // Not all categories are shown in the UI. The database contains list of categories to be shown to users which are updated

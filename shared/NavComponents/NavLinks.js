@@ -4,7 +4,7 @@ import "./Navlinks.css";
 import { signInWithGoogle } from '../Functions/Firebase';
 import AuthContext from '../Contexts/AuthContext';
 import Avatar from '../UIElements/Avatar/Avatar';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 
 const NavLinks = (props) => {
@@ -42,16 +42,16 @@ const NavLinks = (props) => {
                 }
 
                 <li>
-                    <NavLink to="/about" >ABOUT US</NavLink>
+                    <NavLink to="/WebGamesPortal/about" >ABOUT US</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/contact">CONTACT US</NavLink>
+                    <NavLink to="/WebGamesPortal/contact">CONTACT US</NavLink>
                 </li>
                 {
                     auth.loggedIn ?
                         <button onClick={() => {
                             auth.signOut();
-                            history.push("/");
+                            history.push("/WebGamesPortal");
                         }}>LOG OUT
                             </button> :
                         <li>

@@ -41,7 +41,7 @@ const DiscoverCard = (props) => {
                         {props.title}
                     </h2>
                     <NavLink to={{
-                        pathname: "/category",
+                        pathname: "/WebGamesPortal/category",
                         search: `&category=${props.category}`,
                     }}>
                         More

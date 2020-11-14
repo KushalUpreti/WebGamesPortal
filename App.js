@@ -9,7 +9,6 @@ import AuthContext from './shared/Contexts/AuthContext';
 
 
 function App() {
-
   const [state, setState] = useState({
     loggedIn: false
   });
@@ -26,7 +25,6 @@ function App() {
     setState({
       loggedIn: true
     });
-
   }, []);
 
   const logOut = useCallback(() => {
@@ -37,7 +35,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter >
 
       <AuthContext.Provider value={{
         loggedIn: state.loggedIn,
@@ -49,19 +47,19 @@ function App() {
           <Header />
           <Switch>
 
-            <Route path="/" exact>
+            <Route path="/WebGamesPortal" exact>
               <Homepage />
             </Route>
 
-            <Route path="/game">
+            <Route path="/WebGamesPortal/game" >
               <Gamepage />
             </Route>
 
-            <Route path="/category">
+            <Route path="/WebGamesPortal/category">
               <CategoryPage />
             </Route>
 
-            <Redirect to="/"></Redirect>
+            <Redirect to="/WebGamesPortal"></Redirect>
           </Switch>
         </div>
       </AuthContext.Provider>
