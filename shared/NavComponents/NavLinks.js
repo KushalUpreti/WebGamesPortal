@@ -35,7 +35,7 @@ const NavLinks = (props) => {
                             background: "none",
                             border: "none",
                             color: "white",
-                        }} to="/user">
+                        }} to="/WebGamesPortal/user">
                             <Avatar imageUrl={imgUrl} name={userName} />
                         </NavLink>
                     </li> : null

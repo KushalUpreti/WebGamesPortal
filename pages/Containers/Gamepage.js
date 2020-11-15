@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import Container from '../../shared/Containers/Container';
 import IFrame from '../../pages/Components/IFrame';
 import { withRouter } from 'react-router';
@@ -11,19 +11,15 @@ import red from '../../assets/red.png';
 import './Gamepage.css';
 import AuthContext from '../../shared/Contexts/AuthContext';
 
-
-
 const Gamepage = (props) => {
     const auth = useContext(AuthContext);
     const params = new URLSearchParams(props.location.search);
     let category = params.get("category");
-    let id = params.get("id")
+    let id = params.get("id");
 
     const [state, setState] = useState({
         gamelist: [],
         dataLoaded: false,
-        loadingMore: false,
-        lastIndex: " "
     });
 
     const [link, setLink] = useState({
@@ -37,11 +33,14 @@ const Gamepage = (props) => {
 
     useEffect(() => {
         loadGames();
-        checkFav();
+
     }, []);
 
-    const loadGames = () => {
+    useEffect(() => {
+        checkFav();
+    }, [id])
 
+    const loadGames = () => {
         const index = category.indexOf(",");
         if (index !== -1) {
             category = category.slice(0, index);
@@ -79,6 +78,10 @@ const Gamepage = (props) => {
                     setFav({
                         isFav: true
                     })
+                } else {
+                    setFav({
+                        isFav: false
+                    })
                 }
             });
         }
@@ -108,7 +111,6 @@ const Gamepage = (props) => {
                 }
             });
         }
-
     }
 
     return (

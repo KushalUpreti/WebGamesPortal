@@ -1,0 +1,23 @@
+.MiniNav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+}
+
+.MiniNav button {
+  background: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.MiniNav button:hover {
+  border-bottom: 2px solid rgb(13, 77, 197);
+}
+
+.MiniNav button:active {
+  background-color: rgba(41, 42, 44, 0.39);
+}
