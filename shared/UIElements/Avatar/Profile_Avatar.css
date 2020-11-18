@@ -1,0 +1,11 @@
+.Profile_Avatar {
+  width: 150px;
+  height: 150px;
+  margin-left: 40px;
+  transition: 0.7s ease;
+  margin-bottom: 10px;
+}
+
+.Profile_Avatar:hover {
+  transform: scale(1.1);
+}

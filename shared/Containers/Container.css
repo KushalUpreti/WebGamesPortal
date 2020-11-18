@@ -5,6 +5,14 @@
   margin-top: 8vh;
   padding: 0 10%;
   flex-wrap: wrap;
-  text-align: center;
+  text-align: left;
   align-items: center;
+}
+
+@media (max-width: 400px) {
+  .Container {
+    padding: 0;
+    /* overflow-y: scroll;
+    flex-wrap: nowrap; */
+  }
 }

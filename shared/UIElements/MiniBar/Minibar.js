@@ -7,7 +7,7 @@ const Minibar = (props) => {
     return (
         <Container>
             <div className="Minibar">
-                <MiniNav favorites={props.loadFav} />
+                <MiniNav favorites={props.loadFav} history={props.loadHistory} />
             </div>
         </Container>
     )

@@ -9,6 +9,12 @@
   display: inline;
 }
 
+.Favorites_h1 {
+  color: white;
+  padding-left: 10%;
+  margin-top: 50px;
+}
+
 .Favorites_img:hover {
   animation: shake 150ms 2 linear;
 }
@@ -22,5 +28,11 @@
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 400px) {
+  .Favorites_h1 {
+    padding: 0;
   }
 }

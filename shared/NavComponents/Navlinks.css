@@ -21,6 +21,7 @@ button {
   padding: 0.5rem;
   font-size: medium;
   font-family: "Montserrat", sans-serif;
+  background: transparent;
 }
 
 .NavLinks a:hover,
@@ -60,5 +61,32 @@ button {
   .NavLinks button:hover {
     background: #1f1e1c;
     color: white;
+    margin-top: 1px;
   }
+}
+
+@media (max-width: 400px) {
+  .NavLinks {
+    display: none;
+  }
+
+  /* .NavLinks li {
+    display: none;
+  } 
+
+  .NavLinks a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .NavLinks button {
+    color: white;
+    background: transparent;
+  }
+
+  .NavLinks button:hover {
+    background: #1f1e1c;
+    color: white;
+    margin-top: 1px;
+  }  */
 }
