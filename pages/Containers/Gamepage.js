@@ -8,7 +8,6 @@ import {
     check_if_history, add_to_history
 } from '../../shared/Functions/Firebase';
 import { receive_data_all } from '../../shared/Functions/FirebaseCallbacks';
-import GameCard from '../../shared/UIElements/GameCard/GameCard.js';
 import hearts from '../../assets/hearts.png';
 import red from '../../assets/red.png';
 import './Gamepage.css';
@@ -20,8 +19,12 @@ const Gamepage = (props) => {
     const params = new URLSearchParams(props.location.search);
     let category = params.get("category");
     let id = params.get("id");
-    let userDetails = JSON.parse(localStorage.getItem("userCred"));
-    let UID = userDetails.uid;
+    let UID;
+    if (auth.loggedIn) {
+        let userDetails = JSON.parse(localStorage.getItem("userCred"));
+        UID = userDetails.uid;
+    }
+
 
     const [state, setState] = useState({
         gamelist: [],
@@ -39,11 +42,14 @@ const Gamepage = (props) => {
 
     useEffect(() => {
         loadGames();
-        check_if_history(UID, id, (snapshot) => {
-            if (!snapshot.val()) {
-                add_to_history(UID, id);
-            }
-        })
+        if (auth.loggedIn) {
+            check_if_history(UID, id, (snapshot) => {
+                if (!snapshot.val()) {
+                    add_to_history(UID, id);
+                }
+            })
+        }
+
     }, []);
 
     useEffect(() => {

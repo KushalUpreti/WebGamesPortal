@@ -4,7 +4,7 @@ import Search from '../../shared/UIElements/Search/Search';
 import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
 import SearchContext from '../../shared/Contexts/SearchContext';
 import DiscoverCard from '../../shared/UIElements/DiscoverCards/DiscoverCard';
-import Spinner from '../../shared/UIElements/Spinner/Spinner';
+import Spinner from '../../shared/UIElements/TestSpinner/TestSpinner';
 import { request_included_category_list, request_discover_cards, search } from '../../shared/Functions/Firebase';
 import { categoryListCallback, discoverCardCallback } from '../../shared/Functions/FirebaseCallbacks';
 import { withRouter } from 'react-router';
@@ -92,7 +92,6 @@ const Homepage = (props) => {
                 </SearchContext.Provider>
 
                 <Dropdown change={changeHandler}>
-                    <option value="" defaultValue="selected" disabled="disabled">Genre</option>
                     {categoryState.categoryList.map(item => {
                         return <option key={item} value={item}>{item}</option>
                     })}
