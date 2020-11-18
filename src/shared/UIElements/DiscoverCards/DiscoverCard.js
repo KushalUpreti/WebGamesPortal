@@ -5,7 +5,8 @@ import { request_category } from '../../Functions/Firebase';
 import { receive_data_all } from '../../Functions/FirebaseCallbacks';
 import Spinner from '../Spinner/Spinner';
 import { NavLink } from 'react-router-dom'
-import './DiscoverCard.css'
+import './DiscoverCard.css';
+import RenderList from '../../Containers/RenderList';
 
 const DiscoverCard = (props) => {
 
@@ -48,17 +49,9 @@ const DiscoverCard = (props) => {
                     </NavLink>
                 </Container>
                 <Container
-                    marginTop="10px">
-                    {state.dataLoaded ? state.gamelist.map(item => {
-                        return <GameCard
-                            key={item.gameId}
-                            url={item.imageUrl}
-                            gameUrl={item.url}
-                            title={item.name}
-                            id={item.gameId}
-                            category={item.category}
-                        ></GameCard>
-                    }) : <Spinner />}
+                    marginTop="10px">,
+                    
+                    {state.dataLoaded ? <RenderList list={state.gamelist}></RenderList> : <Spinner />}
                 </Container>
             </div>
         </React.Fragment>

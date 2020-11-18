@@ -4,11 +4,11 @@ import Search from '../../shared/UIElements/Search/Search';
 import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
 import SearchContext from '../../shared/Contexts/SearchContext';
 import DiscoverCard from '../../shared/UIElements/DiscoverCards/DiscoverCard';
-import GameCard from '../../shared/UIElements/GameCard/GameCard';
-import Spinner from '../../shared/UIElements/Spinner/Spinner';
+import Spinner from '../../shared/UIElements/TestSpinner/TestSpinner';
 import { request_included_category_list, request_discover_cards, search } from '../../shared/Functions/Firebase';
-import { categoryListCallback, discoverCardCallback, searchCallback } from '../../shared/Functions/FirebaseCallbacks';
+import { categoryListCallback, discoverCardCallback } from '../../shared/Functions/FirebaseCallbacks';
 import { withRouter } from 'react-router';
+import RenderList from '../../shared/Containers/RenderList';
 
 const Homepage = (props) => {
 
@@ -32,25 +32,34 @@ const Homepage = (props) => {
         loadAllCategory();
     }, []);
 
-    const searchHandler = (event) => {
+    // const searchHandler = (event) => {
 
-        if (event.target.value.length > 0) {
-            search(event.target.value, 5, (snapshot) => {
-                let array = searchCallback(snapshot);
-                if (event.target.value.length > 0) {
-                    searchFunction({
-                        searchList: [...array],
-                        searching: true
-                    })
-                }
-            })
-        } else {
-            searchFunction({
-                searchList: [],
-                searching: false
-            })
-        }
-    }
+    //     if (event.target.value.length > 0) {
+    //         search(event.target.value, 5, function(snapshot){
+    //             console.log("Received Data:");
+
+    //             if(snapshot.val() == null){
+
+    //                 // For cleaning 'search index' database 'NOT REQUIRED BUT USEFUL'
+    //                 // firebase.database().ref('/Game Collection/search index/'+snapshot.key).set(null);
+    //                 //
+    //                 console.log("Database doesn't exist");
+    //                 return;
+    //             }
+
+    //             var gameId = snapshot.key;
+    //             var name = snapshot.val().name;
+    //             var url = snapshot.val().url;
+    //             var imageUrl = snapshot.val().imageUrl;
+    //             var category = snapshot.val().category;
+    //         });
+    //     } else {
+    //         searchFunction({
+    //             searchList: [],
+    //             searching: false
+    //         })
+    //     }
+    // }
 
 
     const loadAllCategory = useCallback(() => {
@@ -83,13 +92,12 @@ const Homepage = (props) => {
             <Container>
                 <SearchContext.Provider value={{
                     text: searchState.searchKey,
-                    searchItem: searchHandler
+                    // searchItem: searchHandler
                 }}>
                     <Search />
                 </SearchContext.Provider>
 
                 <Dropdown change={changeHandler}>
-                    <option value="" defaultValue="selected" disabled="disabled">Genre</option>
                     {categoryState.categoryList.map(item => {
                         return <option key={item} value={item}>{item}</option>
                     })}
@@ -98,15 +106,8 @@ const Homepage = (props) => {
 
             {searchState.searching ? <h2 style={{ color: "white", paddingLeft: "10%" }}>Searching</h2> : null}
             {searchState.searching ? <Container marginTop="15px">
-                {searchState.searching ? searchState.searchList.map((item) => {
-                    return <GameCard key={item.gameId}
-                        url={item.imageUrl}
-                        gameUrl={item.url}
-                        title={item.name}
-                        id={item.gameId}
-                        category={item.category}>
-                    </GameCard>
-                }) : null}
+                {searchState.searching ? <RenderList list={searchState.searchList}></RenderList>
+                    : null}
             </Container> : null}
 
             {

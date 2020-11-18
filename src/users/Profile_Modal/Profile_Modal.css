@@ -1,0 +1,22 @@
+.Profile_Modal {
+  position: fixed;
+  height: 70%;
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background-color: rgba(68, 64, 64, 0.486);
+  z-index: 15;
+  top: 20vh;
+  left: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.Profile_Modal h3 {
+  color: white;
+  margin: auto;
+  font-size: 30px;
+}

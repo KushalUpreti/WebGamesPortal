@@ -1,0 +1,53 @@
+body {
+  background-color: black;
+}
+
+.logo {
+  width: fit-content;
+  height: fit-content;
+  padding: auto;
+  margin: auto;
+  transform: scale(0.5);
+}
+
+.background {
+  width: 500px;
+  height: 500px;
+  background: url("./frames.png") 0px 0px no-repeat;
+  background-size: contain;
+}
+
+.foreground {
+  width: 500px;
+  height: 500px;
+  background: url("./frames.png");
+  animation: frames 1.5s steps(15) infinite forwards;
+  /* animation: rotate--axis--center 1s ease-out infinite; */
+}
+
+@keyframes frames {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -7500px;
+  }
+}
+
+@keyframes rotate--axis--center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

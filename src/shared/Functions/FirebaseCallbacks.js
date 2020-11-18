@@ -70,3 +70,34 @@ export const searchCallback = (snapshot) => {
     });
     return array;
 };
+
+export const request_gameCallback = (snapshot) => {
+    console.log("Received Data:");
+    var gameId = snapshot.key;
+    var name = (snapshot.val().name);
+    var url = (snapshot.val().url);
+    var imageUrl = (snapshot.val().imageUrl);
+    var category = (snapshot.val().category);
+
+    // var isPortrait=(childSnapshot.val().isPortrait);  Note: 'Not For Web'
+
+    const object = {
+        gameId,
+        name,
+        url,
+        imageUrl,
+        category
+    }
+    return object;
+}
+
+export const all_avatarCallback = (childSnapshot) => {
+    var avatarId = childSnapshot.key;          // avatar key (usually numeric sequence starting from '1')
+    var avatarUrl = childSnapshot.val()
+
+    const obj = {
+        avatarId,
+        avatarUrl
+    }
+    return obj;
+}

@@ -82,7 +82,7 @@ export function search(keyword, size, callback) {
             var gameId = childSnapshot.key;
 
             //Start at 'gameId', stop at size 1
-            request_all(gameId, 5, callback);         // Using function (i) & passing 'callback' parameter
+            request_game(gameId, callback);         // Using function (i) & passing 'callback' parameter
         });
     });
 }
@@ -104,18 +104,6 @@ export function request_discover_cards(callback) {
     database = firebase.database().ref('/Discover Cards');
 
     database.once('value').then(callback);
-}
-
-// (vi)
-// Avatar Url
-export function get_avatar_url(UID, callback) {
-    var database;
-    database = firebase.database().ref('/Users/' + UID);
-
-    database.once('value').then(function (snapshot) {
-        var avatarId = snapshot.val().avatarId;
-        firebase.database().ref('/Avatars/' + avatarId).once("value").then(callback);
-    });
 }
 
 // (vii)
@@ -157,3 +145,112 @@ export function check_if_favorite(UID, gameId, callback) {
     database = firebase.database().ref('/Users/' + UID + "/favorites/" + gameId);
     database.once('value').then(callback);       //Query to know if game exists
 }
+
+function request_game(gameId, callback) {
+    var database;
+    database = firebase.database().ref('/Game Collection/all/' + gameId);
+    database.once('value').then(callback);
+}
+
+export function get_history(UID, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/history");
+
+    database.once('value').then(function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var gameId = childSnapshot.key;
+
+            //Start at 'gameId', stop at size 1
+            request_game(gameId, callback);          // Using function (i) & passing 'callback' parameter
+        });
+    });
+}
+
+// (x)
+// Add to history 
+export function add_to_history(UID, gameId, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/history/" + gameId);
+    database.set(true, callback);       //Setting true to add
+}
+
+// (xi)
+// Check if Favorite
+export function check_if_history(UID, gameId, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/history/" + gameId);
+    database.once('value').then(callback);       //Query to know if game exists
+}
+
+// (xii)
+// Remove from favorites
+export function remove_from_history(UID, gameId, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/history/" + gameId);
+    database.set(null, callback);       //Setting null to remove
+}
+
+
+// (vii)
+// Change Avatar
+export function change_avatar(UID, avatarId, errorCallback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + '/avatarId').set(avatarId, errorCallback);
+}
+
+// (viii)
+// Get list of avatars
+export function get_avatar_list(callback) {
+    var database;
+    database = firebase.database().ref('/Avatars');
+    database.once('value').then(callback);
+}
+
+// (vi)
+// Avatar Url
+export function get_avatar_url(UID, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID);
+
+    database.once('value').then(function (snapshot) {
+        var avatarId;
+        if (snapshot.val() === null) {
+            avatarId = 4;
+        } else {
+            avatarId = snapshot.val().avatarId;
+        }
+
+        firebase.database().ref('/Avatars/' + avatarId).once("value").then(callback);
+    });
+}
+
+export function get_background_url(UID, callback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID);
+
+    database.once('value').then(function (snapshot) {
+        var backgroundImageId = snapshot.val().backgroundImageId;
+        console.log(backgroundImageId);
+        if (backgroundImageId === undefined) {
+            backgroundImageId = 8;
+        }
+        firebase.database().ref('/Background Images/' + backgroundImageId).once("value").then(callback);
+    });
+}
+
+// (x)
+// Change Background
+export function change_background(UID, avatarId, errorCallback) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + '/backgroundImageId').set(avatarId, errorCallback);
+}
+
+// (xi)
+// Get list of background images
+export function get_background_list(callback) {
+    var database;
+    database = firebase.database().ref('/Background Images/');
+    database.once('value').then(callback);
+}
+
+

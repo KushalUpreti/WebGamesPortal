@@ -1,29 +1,34 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import Container from '../../shared/Containers/Container';
 import IFrame from '../../pages/Components/IFrame';
 import { withRouter } from 'react-router';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
-import { request_category, request_all, check_if_favorite, add_to_favorites, remove_from_favorites } from '../../shared/Functions/Firebase';
+import {
+    request_category, request_all, check_if_favorite, add_to_favorites, remove_from_favorites,
+    check_if_history, add_to_history
+} from '../../shared/Functions/Firebase';
 import { receive_data_all } from '../../shared/Functions/FirebaseCallbacks';
-import GameCard from '../../shared/UIElements/GameCard/GameCard.js';
 import hearts from '../../assets/hearts.png';
 import red from '../../assets/red.png';
 import './Gamepage.css';
 import AuthContext from '../../shared/Contexts/AuthContext';
-
-
+import RenderList from '../../shared/Containers/RenderList';
 
 const Gamepage = (props) => {
     const auth = useContext(AuthContext);
     const params = new URLSearchParams(props.location.search);
     let category = params.get("category");
-    let id = params.get("id")
+    let id = params.get("id");
+    let UID;
+    if (auth.loggedIn) {
+        let userDetails = JSON.parse(localStorage.getItem("userCred"));
+        UID = userDetails.uid;
+    }
+
 
     const [state, setState] = useState({
         gamelist: [],
         dataLoaded: false,
-        loadingMore: false,
-        lastIndex: " "
     });
 
     const [link, setLink] = useState({
@@ -37,11 +42,22 @@ const Gamepage = (props) => {
 
     useEffect(() => {
         loadGames();
-        checkFav();
+        if (auth.loggedIn) {
+            check_if_history(UID, id, (snapshot) => {
+                if (!snapshot.val()) {
+                    add_to_history(UID, id);
+                }
+            })
+        }
+
     }, []);
 
-    const loadGames = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        checkFav();
+    }, [id])
 
+    const loadGames = () => {
         const index = category.indexOf(",");
         if (index !== -1) {
             category = category.slice(0, index);
@@ -72,12 +88,14 @@ const Gamepage = (props) => {
     const checkFav = () => {
 
         if (localStorage.getItem("userCred") !== null) {
-            let userDetails = JSON.parse(localStorage.getItem("userCred"));
-            let UID = userDetails.uid;
             check_if_favorite(UID, id, function (snapshot) {
                 if (snapshot.val()) {
                     setFav({
                         isFav: true
+                    })
+                } else {
+                    setFav({
+                        isFav: false
                     })
                 }
             });
@@ -85,8 +103,6 @@ const Gamepage = (props) => {
     }
 
     const setFavorite = () => {
-        let userDetails = JSON.parse(localStorage.getItem("userCred"));
-        let UID = userDetails.uid;
         if (!fav.isFav) {
             add_to_favorites(UID, id, function (error) {
                 if (error) {
@@ -108,7 +124,6 @@ const Gamepage = (props) => {
                 }
             });
         }
-
     }
 
     return (
@@ -133,19 +148,10 @@ const Gamepage = (props) => {
 
                 </IFrame>
             </Container>
-            <h1 style={{ color: "white", paddingLeft: "10%", marginTop: "50px" }}>Similar games</h1>
+            <h1 className="Favorites_h1">Similar games</h1>
             <Container marginTop="10px">
                 {
-                    state.dataLoaded ? state.gamelist.map(item => {
-                        return <GameCard
-                            key={item.gameId}
-                            url={item.imageUrl}
-                            gameUrl={item.url}
-                            title={item.name}
-                            id={item.gameId}
-                            category={item.category}
-                        ></GameCard>
-                    }) : <Spinner />
+                    state.dataLoaded ? <RenderList list={state.gamelist}></RenderList> : <Spinner />
                 }
                 {state.loadingMore ? <Spinner /> : null}
             </Container>

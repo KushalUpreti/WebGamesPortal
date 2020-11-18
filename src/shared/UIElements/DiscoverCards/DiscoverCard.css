@@ -11,4 +11,9 @@ a {
   color: red;
   font-family: "Montserrat", sans-serif;
 }
-/* eedf0e */
+
+@media (max-width: 400px) {
+  h2 {
+    font-size: 20px;
+  }
+}

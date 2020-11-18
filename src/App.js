@@ -5,6 +5,7 @@ import Homepage from './pages/Containers/Homepage';
 import Header from './shared/NavComponents/Header';
 import Gamepage from './pages/Containers/Gamepage';
 import CategoryPage from './pages/Containers/CategoryPage';
+import UserPage from "./users/UserPage"
 import AuthContext from './shared/Contexts/AuthContext';
 
 
@@ -34,6 +35,53 @@ function App() {
     })
   }, []);
 
+  let routes = null;
+  if (!state.loggedIn) {
+    routes = (
+      <>
+        <Switch>
+          <Route path="/WebGamesPortal" exact>
+            <Homepage />
+          </Route>
+
+          <Route path="/WebGamesPortal/game" >
+            <Gamepage />
+          </Route>
+
+          <Route path="/WebGamesPortal/category">
+            <CategoryPage />
+          </Route>
+          <Redirect to="/WebGamesPortal"></Redirect>
+        </Switch>
+
+      </>
+    )
+  } else {
+    routes = (
+      <>
+        <Switch>
+          <Route path="/WebGamesPortal" exact>
+            <Homepage />
+          </Route>
+
+          <Route path="/WebGamesPortal/game" >
+            <Gamepage />
+          </Route>
+
+          <Route path="/WebGamesPortal/category">
+            <CategoryPage />
+          </Route>
+
+          <Route path="/WebGamesPortal/user">
+            <UserPage />
+          </Route>
+          {/* <Redirect to="/WebGamesPortal"></Redirect> */}
+        </Switch>
+
+      </>
+    )
+  }
+
   return (
     <BrowserRouter >
 
@@ -45,22 +93,9 @@ function App() {
 
         <div className="App">
           <Header />
-          <Switch>
 
-            <Route path="/WebGamesPortal" exact>
-              <Homepage />
-            </Route>
+          {routes}
 
-            <Route path="/WebGamesPortal/game" >
-              <Gamepage />
-            </Route>
-
-            <Route path="/WebGamesPortal/category">
-              <CategoryPage />
-            </Route>
-
-            <Redirect to="/WebGamesPortal"></Redirect>
-          </Switch>
         </div>
       </AuthContext.Provider>
     </BrowserRouter>
