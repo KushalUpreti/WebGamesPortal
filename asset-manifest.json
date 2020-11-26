@@ -1,24 +1,27 @@
 {
   "files": {
-    "main.css": "/WebGamesPortal/static/css/main.7a609298.chunk.css",
-    "main.js": "/WebGamesPortal/static/js/main.a0b67cce.chunk.js",
-    "main.js.map": "/WebGamesPortal/static/js/main.a0b67cce.chunk.js.map",
-    "runtime-main.js": "/WebGamesPortal/static/js/runtime-main.2f23e098.js",
-    "runtime-main.js.map": "/WebGamesPortal/static/js/runtime-main.2f23e098.js.map",
-    "static/js/2.98a08e7f.chunk.js": "/WebGamesPortal/static/js/2.98a08e7f.chunk.js",
-    "static/js/2.98a08e7f.chunk.js.map": "/WebGamesPortal/static/js/2.98a08e7f.chunk.js.map",
-    "static/js/3.7525ae54.chunk.js": "/WebGamesPortal/static/js/3.7525ae54.chunk.js",
-    "static/js/3.7525ae54.chunk.js.map": "/WebGamesPortal/static/js/3.7525ae54.chunk.js.map",
+    "main.css": "/WebGamesPortal/static/css/main.98199534.chunk.css",
+    "main.js": "/WebGamesPortal/static/js/main.bdd0ac3e.chunk.js",
+    "main.js.map": "/WebGamesPortal/static/js/main.bdd0ac3e.chunk.js.map",
+    "runtime-main.js": "/WebGamesPortal/static/js/runtime-main.eb62abbc.js",
+    "runtime-main.js.map": "/WebGamesPortal/static/js/runtime-main.eb62abbc.js.map",
+    "static/css/2.9ac04a86.chunk.css": "/WebGamesPortal/static/css/2.9ac04a86.chunk.css",
+    "static/js/2.9069b704.chunk.js": "/WebGamesPortal/static/js/2.9069b704.chunk.js",
+    "static/js/2.9069b704.chunk.js.map": "/WebGamesPortal/static/js/2.9069b704.chunk.js.map",
+    "static/js/3.283e8e97.chunk.js": "/WebGamesPortal/static/js/3.283e8e97.chunk.js",
+    "static/js/3.283e8e97.chunk.js.map": "/WebGamesPortal/static/js/3.283e8e97.chunk.js.map",
     "index.html": "/WebGamesPortal/index.html",
-    "static/css/main.7a609298.chunk.css.map": "/WebGamesPortal/static/css/main.7a609298.chunk.css.map",
-    "static/js/2.98a08e7f.chunk.js.LICENSE.txt": "/WebGamesPortal/static/js/2.98a08e7f.chunk.js.LICENSE.txt",
+    "static/css/2.9ac04a86.chunk.css.map": "/WebGamesPortal/static/css/2.9ac04a86.chunk.css.map",
+    "static/css/main.98199534.chunk.css.map": "/WebGamesPortal/static/css/main.98199534.chunk.css.map",
+    "static/js/2.9069b704.chunk.js.LICENSE.txt": "/WebGamesPortal/static/js/2.9069b704.chunk.js.LICENSE.txt",
     "static/media/TestSpinner.css": "/WebGamesPortal/static/media/frames.ccc08427.png",
     "static/media/hearts.29546ff8.png": "/WebGamesPortal/static/media/hearts.29546ff8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.2f23e098.js",
-    "static/js/2.98a08e7f.chunk.js",
-    "static/css/main.7a609298.chunk.css",
-    "static/js/main.a0b67cce.chunk.js"
+    "static/js/runtime-main.eb62abbc.js",
+    "static/css/2.9ac04a86.chunk.css",
+    "static/js/2.9069b704.chunk.js",
+    "static/css/main.98199534.chunk.css",
+    "static/js/main.bdd0ac3e.chunk.js"
   ]
 }
