@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Container from '../../shared/Containers/Container';
 import IFrame from '../../pages/Components/IFrame';
 import { withRouter } from 'react-router';
@@ -20,6 +20,7 @@ const Gamepage = (props) => {
     let category = params.get("category");
     let id = params.get("id");
     let UID;
+
     if (auth.loggedIn) {
         let userDetails = JSON.parse(localStorage.getItem("userCred"));
         UID = userDetails.uid;
@@ -129,9 +130,9 @@ const Gamepage = (props) => {
     return (
         <>
             <Container>
-                <h1 style={{ color: "white" }}>{props.location.title || link.title}</h1>
+                <h1 className="GameTitle" style={{ color: "white" }}>{props.location.title || link.title}</h1>
                 {
-                    auth.loggedIn ? <div>
+                    auth.loggedIn ? <div className="TopDiv">
                         <img className="Favorites_img"
                             onClick={setFavorite} alt="fav"
                             src={!fav.isFav ? hearts : red}></img>
@@ -139,7 +140,6 @@ const Gamepage = (props) => {
                         >{fav.isFav ? "Added to favorites" : "Add to favorites"}</h3>
                     </div> : null
                 }
-
 
             </Container>
 
@@ -149,11 +149,10 @@ const Gamepage = (props) => {
                 </IFrame>
             </Container>
             <h1 className="Favorites_h1">Similar games</h1>
-            <Container marginTop="10px">
+            <Container scroll={true} marginTop="10px">
                 {
-                    state.dataLoaded ? <RenderList list={state.gamelist}></RenderList> : <Spinner />
+                    state.dataLoaded ? <RenderList tiny={true} list={state.gamelist}></RenderList> : <Spinner />
                 }
-                {state.loadingMore ? <Spinner /> : null}
             </Container>
         </>)
 }

@@ -1,0 +1,138 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2020-11-24 16:07:09
+count workspace : d:\Bsc\L5\Web\0. ReactApp\webgames
+total files : 112
+total code lines : 20313
+total comment lines : 323
+total blank lines : 472
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .js|           1651|             89|            278|    8.1|
+   |           .css|           1009|             27|            136|    5.0|
+   |          .html|             62|             23|              3|   0.31|
+   |           .svg|              7|              0|              0|  0.034|
+   |           .env|              8|              0|              1|  0.039|
+   |            .md|             38|             12|             32|   0.19|
+   |          .json|          17509|              0|              4|     86|
+   |           .txt|              6|            171|             13|  0.030|
+   |               |             18|              1|              5|  0.089|
+   |           .map|              5|              0|              0|  0.025|
+   -------------------------------------------------------------------------
+.gitignore, code is 18, comment is 1, blank is 5.
+build\asset-manifest.json, code is 23, comment is 0, blank is 1.
+build\favicon.ico, it is a binary file.
+build\favicon.png, it is a binary file.
+build\index.html, code is 1, comment is 0, blank is 0.
+build\logo192.png, it is a binary file.
+build\logo512.png, it is a binary file.
+build\manifest.json, code is 25, comment is 0, blank is 0.
+build\robots.txt, code is 3, comment is 1, blank is 0.
+build\static\css\main.7a609298.chunk.css, code is 1, comment is 2, blank is 0.
+build\static\css\main.7a609298.chunk.css.map, code is 1, comment is 0, blank is 0.
+build\static\js\2.98a08e7f.chunk.js, code is 1, comment is 3, blank is 0.
+build\static\js\2.98a08e7f.chunk.js.LICENSE.txt, code is 0, comment is 169, blank is 13.
+build\static\js\2.98a08e7f.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\3.7525ae54.chunk.js, code is 1, comment is 1, blank is 0.
+build\static\js\3.7525ae54.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\main.a0b67cce.chunk.js, code is 1, comment is 1, blank is 0.
+build\static\js\main.a0b67cce.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\runtime-main.2f23e098.js, code is 1, comment is 1, blank is 0.
+build\static\js\runtime-main.2f23e098.js.map, code is 1, comment is 0, blank is 0.
+build\static\media\frames.ccc08427.png, it is a binary file.
+build\static\media\hearts.29546ff8.png, it is a binary file.
+build\test\test.css, code is 72, comment is 0, blank is 12.
+build\test\test.html, code is 16, comment is 0, blank is 1.
+package-lock.json, code is 17392, comment is 0, blank is 0.
+package.json, code is 44, comment is 0, blank is 3.
+public\favicon.ico, it is a binary file.
+public\favicon.png, it is a binary file.
+public\index.html, code is 23, comment is 23, blank is 0.
+public\logo192.png, it is a binary file.
+public\logo512.png, it is a binary file.
+public\manifest.json, code is 25, comment is 0, blank is 0.
+public\robots.txt, code is 3, comment is 1, blank is 0.
+public\test\test.css, code is 72, comment is 0, blank is 12.
+public\test\test.html, code is 16, comment is 0, blank is 1.
+README.md, code is 38, comment is 12, blank is 32.
+src\App.css, code is 19, comment is 1, blank is 2.
+src\App.js, code is 86, comment is 0, blank is 19.
+src\App.test.js, code is 7, comment is 0, blank is 1.
+src\assets\edit.png, it is a binary file.
+src\assets\favicon.png, it is a binary file.
+src\assets\hearts.png, it is a binary file.
+src\assets\red.png, it is a binary file.
+src\firebase.env, code is 8, comment is 0, blank is 1.
+src\index.css, code is 12, comment is 0, blank is 1.
+src\index.js, code is 12, comment is 3, blank is 2.
+src\logo.svg, code is 7, comment is 0, blank is 0.
+src\pages\Components\IFrame.css, code is 7, comment is 0, blank is 0.
+src\pages\Components\IFrame.js, code is 8, comment is 0, blank is 3.
+src\pages\Containers\CategoryPage.js, code is 88, comment is 0, blank is 15.
+src\pages\Containers\Gamepage.css, code is 52, comment is 0, blank is 9.
+src\pages\Containers\Gamepage.js, code is 142, comment is 0, blank is 19.
+src\pages\Containers\Heading.module.css, code is 11, comment is 0, blank is 1.
+src\pages\Containers\Homepage.js, code is 150, comment is 3, blank is 22.
+src\reportWebVitals.js, code is 12, comment is 0, blank is 1.
+src\setupTests.js, code is 1, comment is 4, blank is 0.
+src\shared\Containers\Container.css, code is 10, comment is 0, blank is 0.
+src\shared\Containers\Container.js, code is 20, comment is 0, blank is 2.
+src\shared\Containers\Container2.css, code is 16, comment is 0, blank is 1.
+src\shared\Containers\RenderList.js, code is 15, comment is 0, blank is 2.
+src\shared\Contexts\AuthContext.js, code is 7, comment is 0, blank is 3.
+src\shared\Contexts\SearchContext.js, code is 6, comment is 0, blank is 2.
+src\shared\Functions\Firebase.js, code is 175, comment is 54, blank is 56.
+src\shared\Functions\FirebaseCallbacks.js, code is 97, comment is 10, blank is 15.
+src\shared\Functions\LoadMore.js, code is 5, comment is 0, blank is 4.
+src\shared\Functions\useConstructor.js, code is 7, comment is 0, blank is 1.
+src\shared\NavComponents\Header.css, code is 47, comment is 0, blank is 9.
+src\shared\NavComponents\Header.js, code is 33, comment is 0, blank is 4.
+src\shared\NavComponents\Navlinks.css, code is 62, comment is 19, blank is 11.
+src\shared\NavComponents\NavLinks.js, code is 62, comment is 0, blank is 9.
+src\shared\UIElements\Avatar\Avatar.css, code is 26, comment is 0, blank is 3.
+src\shared\UIElements\Avatar\Avatar.js, code is 10, comment is 0, blank is 2.
+src\shared\UIElements\Avatar\Profile_Avatar.css, code is 17, comment is 0, blank is 2.
+src\shared\UIElements\Avatar\Profile_Avatar.js, code is 7, comment is 0, blank is 2.
+src\shared\UIElements\Backdrop\Backdrop.css, code is 10, comment is 0, blank is 0.
+src\shared\UIElements\Backdrop\Backdrop.js, code is 10, comment is 0, blank is 3.
+src\shared\UIElements\Button\Button.css, code is 27, comment is 0, blank is 3.
+src\shared\UIElements\Button\Button.js, code is 10, comment is 0, blank is 2.
+src\shared\UIElements\Carousel\Carousel.css, code is 11, comment is 0, blank is 1.
+src\shared\UIElements\Carousel\Carousel.js, code is 30, comment is 0, blank is 6.
+src\shared\UIElements\DiscoverCards\DiscoverCard.css, code is 16, comment is 0, blank is 3.
+src\shared\UIElements\DiscoverCards\DiscoverCard.js, code is 53, comment is 0, blank is 7.
+src\shared\UIElements\Dropdown\Dropdown.css, code is 17, comment is 0, blank is 2.
+src\shared\UIElements\Dropdown\Dropdown.js, code is 11, comment is 0, blank is 2.
+src\shared\UIElements\Form\Form.js, code is 9, comment is 0, blank is 3.
+src\shared\UIElements\GameCard\GameCard.css, code is 52, comment is 1, blank is 8.
+src\shared\UIElements\GameCard\GameCard.js, code is 26, comment is 0, blank is 2.
+src\shared\UIElements\GameCard\GameCardSmall.css, code is 54, comment is 1, blank is 8.
+src\shared\UIElements\Input\Input.css, code is 19, comment is 0, blank is 2.
+src\shared\UIElements\Input\Input.js, code is 10, comment is 6, blank is 2.
+src\shared\UIElements\MiniBar\Minibar.css, code is 11, comment is 1, blank is 0.
+src\shared\UIElements\MiniBar\Minibar.js, code is 14, comment is 0, blank is 1.
+src\shared\UIElements\MiniBar\MiniNav.css, code is 20, comment is 0, blank is 3.
+src\shared\UIElements\MiniBar\MiniNav.js, code is 15, comment is 0, blank is 1.
+src\shared\UIElements\Modal\Modal.css, code is 19, comment is 0, blank is 1.
+src\shared\UIElements\Modal\Modal.js, code is 16, comment is 0, blank is 2.
+src\shared\UIElements\Search\Search.css, code is 0, comment is 0, blank is 0.
+src\shared\UIElements\Search\Search.js, code is 11, comment is 0, blank is 3.
+src\shared\UIElements\SideDrawer\Sidedrawer.css, code is 51, comment is 0, blank is 7.
+src\shared\UIElements\SideDrawer\Sidedrawer.js, code is 86, comment is 0, blank is 15.
+src\shared\UIElements\SideDrawer\SideNavElems\SideNavElem.css, code is 23, comment is 0, blank is 2.
+src\shared\UIElements\SideDrawer\SideNavElems\SideNavElem.js, code is 40, comment is 0, blank is 3.
+src\shared\UIElements\Spinner\Spinner.css, code is 61, comment is 0, blank is 6.
+src\shared\UIElements\Spinner\Spinner.js, code is 17, comment is 0, blank is 1.
+src\shared\UIElements\TestSpinner\frames.png, it is a binary file.
+src\shared\UIElements\TestSpinner\index.html, code is 6, comment is 0, blank is 1.
+src\shared\UIElements\TestSpinner\TestSpinner.css, code is 46, comment is 1, blank is 6.
+src\shared\UIElements\TestSpinner\TestSpinner.js, code is 15, comment is 0, blank is 1.
+src\users\Profile_Modal\Profile_Modal.css, code is 28, comment is 0, blank is 2.
+src\users\Profile_Modal\Profile_Modal.js, code is 24, comment is 0, blank is 4.
+src\users\UserPage.css, code is 120, comment is 1, blank is 19.
+src\users\UserPage.js, code is 300, comment is 3, blank is 36.
+===============================================================================

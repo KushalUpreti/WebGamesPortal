@@ -5,8 +5,9 @@ import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
 import SearchContext from '../../shared/Contexts/SearchContext';
 import DiscoverCard from '../../shared/UIElements/DiscoverCards/DiscoverCard';
 import Spinner from '../../shared/UIElements/TestSpinner/TestSpinner';
-import { request_included_category_list, request_discover_cards, search } from '../../shared/Functions/Firebase';
-import { categoryListCallback, discoverCardCallback } from '../../shared/Functions/FirebaseCallbacks';
+import Carousel from '../../shared/UIElements/Carousel/Carousel';
+import { request_included_category_list, request_discover_cards, search, get_game_teasers } from '../../shared/Functions/Firebase';
+import { categoryListCallback, discoverCardCallback, game_teaserCallback } from '../../shared/Functions/FirebaseCallbacks';
 import { withRouter } from 'react-router';
 import RenderList from '../../shared/Containers/RenderList';
 
@@ -19,6 +20,11 @@ const Homepage = (props) => {
         searching: false
     });
 
+    const [carouselState, setCarouselState] = useState({
+        carouselList: [],
+        carouselListLoaded: false
+    })
+
     const [categoryState, categoryFunction] = useState({
         categoryList: [],
     });
@@ -29,38 +35,77 @@ const Homepage = (props) => {
     })
 
     useEffect(() => {
+        loadCarouselContent();
         loadAllCategory();
+        console.log(document.querySelector("BrainhubCarousel__arrows BrainhubCarousel__arrowLeft"));
     }, []);
 
-    // const searchHandler = (event) => {
 
-    //     if (event.target.value.length > 0) {
-    //         search(event.target.value, 5, function(snapshot){
-    //             console.log("Received Data:");
+    const searchHandler = (event) => {
 
-    //             if(snapshot.val() == null){
+        if (event.target.value.length > 0) {
+            searchFunction({
+                searchList: [],
+                searching: true
+            })
 
-    //                 // For cleaning 'search index' database 'NOT REQUIRED BUT USEFUL'
-    //                 // firebase.database().ref('/Game Collection/search index/'+snapshot.key).set(null);
-    //                 //
-    //                 console.log("Database doesn't exist");
-    //                 return;
-    //             }
+            search(event.target.value, 5, function (snapshot) {
+                if (snapshot.val() == null) {
 
-    //             var gameId = snapshot.key;
-    //             var name = snapshot.val().name;
-    //             var url = snapshot.val().url;
-    //             var imageUrl = snapshot.val().imageUrl;
-    //             var category = snapshot.val().category;
-    //         });
-    //     } else {
-    //         searchFunction({
-    //             searchList: [],
-    //             searching: false
-    //         })
-    //     }
-    // }
+                    // For cleaning 'search index' database 'NOT REQUIRED BUT USEFUL'
+                    // firebase.database().ref('/Game Collection/search index/'+snapshot.key).set(null);
+                    //
+                    console.log("Database doesn't exist");
+                    return;
+                }
+                console.log("Searching");
+                let array = [];
+                var gameId = snapshot.key;
+                var name = snapshot.val().name;
+                var url = snapshot.val().url;
+                var imageUrl = snapshot.val().imageUrl;
+                var category = snapshot.val().category;
 
+                const obj = {
+                    gameId,
+                    name,
+                    url,
+                    imageUrl,
+                    category
+                }
+                array.push(obj);
+                searchFunction(prevState => {
+                    if (prevState.searchList.find((item) => {
+                        return item.gameId === obj.gameId;
+                    }) === undefined) {
+                        const newState = {
+                            ...prevState,
+                            searchList: [...prevState.searchList, ...array]
+                        }
+                        return newState;
+                    } else {
+                        return prevState;
+                    }
+                })
+            });
+        } else {
+            searchFunction({
+                searchList: [],
+                searching: false
+            })
+        }
+    }
+
+    const loadCarouselContent = () => {
+        get_game_teasers((snapshot) => {
+            const values = game_teaserCallback(snapshot);
+            setCarouselState({
+                ...carouselState,
+                carouselList: [...values],
+                carouselListLoaded: true
+            })
+        })
+    }
 
     const loadAllCategory = useCallback(() => {
         request_included_category_list((snapshot) => {
@@ -92,7 +137,7 @@ const Homepage = (props) => {
             <Container>
                 <SearchContext.Provider value={{
                     text: searchState.searchKey,
-                    // searchItem: searchHandler
+                    searchItem: searchHandler
                 }}>
                     <Search />
                 </SearchContext.Provider>
@@ -110,6 +155,10 @@ const Homepage = (props) => {
                     : null}
             </Container> : null}
 
+            {carouselState.carouselListLoaded ? <Container>
+                <Carousel itemList={carouselState.carouselList} />
+            </Container> : null}
+
             {
                 state.dataLoaded ? state.discoverList.map(item => {
                     const id = item.title.slice(0, 15);
@@ -120,7 +169,6 @@ const Homepage = (props) => {
                     ></DiscoverCard>
                 }) : <Spinner />
             }
-
         </>
     );
 }

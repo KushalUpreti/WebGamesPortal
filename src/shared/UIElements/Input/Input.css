@@ -13,8 +13,9 @@ Input:focus {
   outline: none;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 460px) {
   .Input {
     margin-bottom: 0px;
+    width: 150px;
   }
 }

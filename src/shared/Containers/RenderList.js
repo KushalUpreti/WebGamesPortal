@@ -8,7 +8,8 @@ const RenderList = (props) => {
             gameUrl={item.url}
             title={item.name}
             id={item.gameId}
-            category={item.category}>
+            category={item.category}
+            small={props.tiny}>
         </GameCard>
     })
 }

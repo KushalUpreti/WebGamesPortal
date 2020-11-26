@@ -190,6 +190,19 @@ export function remove_from_history(UID, gameId, callback) {
     database.set(null, callback);       //Setting null to remove
 }
 
+export function clear_favorites(UID) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/favorites/");
+    return database.remove();
+}
+
+//Remove all history.
+export function clear_history(UID) {
+    var database;
+    database = firebase.database().ref('/Users/' + UID + "/history/");
+    database.remove();
+}
+
 
 // (vii)
 // Change Avatar
@@ -230,7 +243,6 @@ export function get_background_url(UID, callback) {
 
     database.once('value').then(function (snapshot) {
         var backgroundImageId = snapshot.val().backgroundImageId;
-        console.log(backgroundImageId);
         if (backgroundImageId === undefined) {
             backgroundImageId = 8;
         }
@@ -251,6 +263,12 @@ export function get_background_list(callback) {
     var database;
     database = firebase.database().ref('/Background Images/');
     database.once('value').then(callback);
+}
+
+export function get_game_teasers(callback) {
+    var database;
+    database = firebase.database().ref('Game Teasers/');
+    database.once('value').then(callback);       //Query the list of teasers
 }
 
 

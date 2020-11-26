@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Container from '../shared/Containers/Container';
 import Minibar from '../shared/UIElements/MiniBar/Minibar';
-import { get_favorites, get_history, get_avatar_list, get_avatar_url, change_avatar, get_background_url, change_background, get_background_list } from '../shared/Functions/Firebase';
+import {
+    get_favorites, get_history, get_avatar_list, get_avatar_url,
+    change_avatar, get_background_url, change_background,
+    get_background_list, clear_history, clear_favorites
+} from '../shared/Functions/Firebase';
 import { searchCallback, request_gameCallback, } from '../shared/Functions/FirebaseCallbacks';
 import Spinner from '../shared/UIElements/Spinner/Spinner';
 import edit from '../assets/edit.png'
@@ -20,18 +24,18 @@ const UserPage = () => {
         dataLoaded: false
     });
 
+    const [historyState, setHistoryState] = useState({
+        gamelist: [],
+        dataLoaded: false,
+        noData: false
+    })
+
     const [profileState, setProfileState] = useState({
         profileURL: ""
     })
 
     const [coverState, setCoverState] = useState({
         coverURL: ""
-    })
-
-    const [historyState, setHistoryState] = useState({
-        gamelist: [],
-        dataLoaded: false,
-        noData: false
     })
 
     const [allState, setAllState] = useState({
@@ -266,14 +270,14 @@ const UserPage = () => {
         <>
             <Container marginTop="0">
                 <div>
-                    <img alt="cover_image" className="Cover_img" src={coverState.coverURL}></img>
+                    <img alt="cover_image" className="Cover_img" src={coverState.coverURL || "https://firebasestorage.googleapis.com/v0/b/dif-instantgames.appspot.com/o/backgrounds%2Fimage-1-compressed(1).jpg?alt=media&token=fbe14164-5889-4695-a69a-a87ac07ef6e5"}></img>
                     <div className="Cover_edit" onClick={showCoverModalHandler}>
                         <img src={edit} alt="Edit Profile"></img>
-                        <h6>Edit cover</h6>
+                        <h6 className="Edit_h6">Edit cover</h6>
                     </div>
                 </div>
                 <div>
-                    <img alt="profile_img" className="Profile_img" src={profileState.profileURL}></img>
+                    <img alt="profile_img" className="Profile_img" src={profileState.profileURL || "https://www.vhv.rs/dpng/d/256-2569650_men-profile-icon-png-image-free-download-searchpng.png"}></img>
                     <div className="Profile_edit" onClick={showProfileModalHandler}>
                         <img src={edit} alt="Edit Profile"></img>
                     </div>
@@ -295,7 +299,30 @@ const UserPage = () => {
                 function={setAvatar}
                 text="Choose an Avatar" /> : null}
 
-            {favState.dataLoaded ? <h1 className="Userpage_h1">{allState.currentMode}</h1> : null}
+            <Container>
+                {!favState.dataLoaded ? <h1 className="Userpage_h1">{allState.currentMode}</h1> : null}
+                <div className="Clear" onClick={() => {
+                    if (allState.currentMode === "History") {
+                        clear_history(UID);
+                        setHistoryState({
+                            ...historyState,
+                            gamelist: []
+                        })
+                    }
+                    else if (allState.currentMode === "Favorites") {
+                        clear_favorites(UID);
+                        setFavState({
+                            ...favState,
+                            gamelist: []
+                        })
+                    }
+
+                }}>
+                    <img src={edit} alt="Edit Profile"></img>
+                    <h6 className="Clear_h6">{`Clear ${allState.currentMode}`}</h6>
+                </div>
+            </Container>
+
 
             <Container justify="flex-start" marginTop="10px" marginBottom="20px">
                 {

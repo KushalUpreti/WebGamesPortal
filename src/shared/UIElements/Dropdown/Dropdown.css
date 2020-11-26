@@ -11,3 +11,9 @@ Select {
 *:focus {
   outline: none;
 }
+
+@media (max-width: 460px) {
+  Select {
+    width: 100px;
+  }
+}

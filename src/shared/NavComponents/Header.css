@@ -25,14 +25,32 @@ h1 {
   color: white;
 }
 
+.HamIcon {
+  cursor: pointer;
+  display: none;
+}
+
+.HamIcon div {
+  height: 8px;
+  width: 40px;
+  background-color: white;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
 @media (min-width: 768px) {
   .MainHeader {
     justify-content: space-between;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 460px) {
   .main-navigation__title {
     display: none;
+  }
+
+  .HamIcon {
+    display: block;
   }
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Container from '../../shared/Containers/Container';
 import Dropdown from '../../shared/UIElements/Dropdown/Dropdown';
-import GameCard from '../../shared/UIElements/GameCard/GameCard';
 import Spinner from '../../shared/UIElements/Spinner/Spinner';
 import { request_category, request_included_category_list } from '../../shared/Functions/Firebase';
 import { receive_data_all, categoryListCallback } from '../../shared/Functions/FirebaseCallbacks';
@@ -27,15 +26,12 @@ const CategoryPage = (props) => {
 
     useEffect(() => {
         document.addEventListener('scroll', loadMore);
-        setState({
-            ...state,
-            gameList: []
-        })
+        console.log("Category called");
         loadStuff();
         return () => {
             document.removeEventListener('scroll', loadMore);
         }
-    }, [props]);
+    }, []);
 
     const loadStuff = () => {
         request_included_category_list((snapshot) => {
@@ -74,14 +70,14 @@ const CategoryPage = (props) => {
 
     const loadMore = useCallback(() => {
         if (window.innerHeight + document.documentElement.scrollTop === document.scrollingElement.scrollHeight) {
-
+            console.log("Bottom");
         }
     }, [])
 
     return (
         <>
             <Container>
-                <div></div>
+                <div className={classes.Empty}></div>
 
                 <Dropdown valueProp={categoryState.value} change={changeHandler}>
                     {categoryState.categoryList.map(item => {
@@ -93,10 +89,10 @@ const CategoryPage = (props) => {
 
             <h1 className={classes.Category_h1}>{category}</h1>
 
-            <Container marginTop="15px">
+            <Container scroll={true} marginTop="15px">
 
                 {
-                    state.dataLoaded ? <RenderList list={state.gameList}></RenderList> : <Spinner />
+                    state.dataLoaded ? <RenderList tiny={true} list={state.gameList}></RenderList> : <Spinner />
                 }
                 {state.newLoaded ? null : <Spinner />}
             </Container>

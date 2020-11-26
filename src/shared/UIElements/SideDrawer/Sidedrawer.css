@@ -1,0 +1,58 @@
+.Sidedrawer {
+  height: 100%;
+  width: 70%;
+  background-color: #1c1c1c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  transition: 0.5s ease;
+}
+.PageName {
+  margin-left: 5px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  color: white;
+}
+
+.User {
+  width: 100%;
+  height: 25%;
+}
+
+.Cover {
+  width: 100%;
+  height: 100%;
+}
+
+.Profile {
+  width: 110px;
+  height: 80px;
+  position: absolute;
+  left: 5%;
+  top: 23%;
+  border-radius: 50%;
+}
+
+.Sidename {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  left: 15%;
+  top: 33%;
+}
+
+.SideEmail {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  left: 15%;
+  top: 37%;
+}
+
+.Open {
+  transform: translateX(0);
+}
+
+.Close {
+  transform: translateX(-100%);
+}

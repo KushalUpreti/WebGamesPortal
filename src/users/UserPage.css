@@ -11,9 +11,7 @@
 }
 
 .Userpage_h1 {
-  padding-left: 10%;
   color: white;
-  margin-top: 45px;
 }
 
 .Cover_img {
@@ -79,21 +77,64 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-@media (max-width: 400px) {
+.Clear {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(94, 88, 88, 0.493);
+  /* width: 150px; */
+  height: 35px;
+  border-radius: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Clear h6 {
+  color: white;
+  margin-left: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Clear img {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+}
+
+@media (max-width: 460px) {
   .Profile_img {
     left: 23%;
   }
 
   .Userpage_h1 {
     padding: 0;
+    font-size: 30px;
   }
 
   .Username {
     margin-left: 24%;
   }
 
+  .Edit_h6 {
+    display: none;
+  }
+
+  .Clear_h6 {
+    font-size: 14px;
+  }
+
   .Profile_edit {
-    top: 63%;
-    left: 71%;
+    top: 57%;
+    left: 75%;
+  }
+
+  .Cover_edit {
+    background-color: rgba(94, 88, 88, 0.493);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 43%;
+    right: 12 %;
   }
 }

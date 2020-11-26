@@ -4,6 +4,7 @@
   "homepage": "http://KushalUpreti.github.io/WebGamesPortal",
   "private": true,
   "dependencies": {
+    "@brainhubeu/react-carousel": "^2.0.2",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",

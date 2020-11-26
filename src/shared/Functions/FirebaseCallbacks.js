@@ -101,3 +101,21 @@ export const all_avatarCallback = (childSnapshot) => {
     }
     return obj;
 }
+
+export const game_teaserCallback = (snapshot) => {
+    // Get values like
+    const array = [];
+    snapshot.forEach(function (childSnapshot) {
+        var gameId = childSnapshot.val().gameId;      // Game ID of the game
+        var imageUrl = childSnapshot.val().imageUrl;     // Image Url
+        var category = childSnapshot.val().category;
+
+        const obj = {
+            gameId,
+            imageUrl,
+            category
+        }
+        array.push(obj);
+    });
+    return array;
+};

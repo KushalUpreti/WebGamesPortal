@@ -4,9 +4,9 @@ import './TestSpinner.css'
 const TestSpinner = () => {
     return (
         <React.Fragment>
-            <div class="logo">
-                <div class="background">
-                    <div class="foreground">
+            <div className="logo">
+                <div className="background">
+                    <div className="foreground">
                     </div>
                 </div>
             </div>

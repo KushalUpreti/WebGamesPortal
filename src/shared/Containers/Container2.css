@@ -1,4 +1,4 @@
-.Container {
+.Container2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,4 +7,11 @@
   flex-wrap: wrap;
   text-align: left;
   align-items: center;
+}
+
+@media (max-width: 460px) {
+  .Container {
+    overflow-y: scroll;
+    flex-wrap: nowrap;
+  }
 }

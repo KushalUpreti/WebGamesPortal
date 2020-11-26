@@ -1,0 +1,756 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "d:\\Bsc\\L5\\Web\\0. ReactApp\\webgames",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2020-11-24 16:07:09",
+            "filesum": 112,
+            "codesum": 20313,
+            "commentsum": 323,
+            "blanksum": 472,
+            "statistics": {
+                ".js": {
+                    "code": 1651,
+                    "comment": 89,
+                    "blank": 278
+                },
+                ".css": {
+                    "code": 1009,
+                    "comment": 27,
+                    "blank": 136
+                },
+                ".html": {
+                    "code": 62,
+                    "comment": 23,
+                    "blank": 3
+                },
+                ".svg": {
+                    "code": 7,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".env": {
+                    "code": 8,
+                    "comment": 0,
+                    "blank": 1
+                },
+                ".md": {
+                    "code": 38,
+                    "comment": 12,
+                    "blank": 32
+                },
+                ".json": {
+                    "code": 17509,
+                    "comment": 0,
+                    "blank": 4
+                },
+                ".txt": {
+                    "code": 6,
+                    "comment": 171,
+                    "blank": 13
+                },
+                "": {
+                    "code": 18,
+                    "comment": 1,
+                    "blank": 5
+                },
+                ".map": {
+                    "code": 5,
+                    "comment": 0,
+                    "blank": 0
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 5,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 1,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "build\\asset-manifest.json"
+                },
+                {
+                    "filename": "build\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\index.html"
+                },
+                {
+                    "filename": "build\\logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "build\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "build\\robots.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 2,
+                    "filename": "build\\static\\css\\main.7a609298.chunk.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\css\\main.7a609298.chunk.css.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "build\\static\\js\\2.98a08e7f.chunk.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 0,
+                    "comment": 169,
+                    "filename": "build\\static\\js\\2.98a08e7f.chunk.js.LICENSE.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\2.98a08e7f.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\3.7525ae54.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\3.7525ae54.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\main.a0b67cce.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\main.a0b67cce.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\runtime-main.2f23e098.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\runtime-main.2f23e098.js.map"
+                },
+                {
+                    "filename": "build\\static\\media\\frames.ccc08427.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\static\\media\\hearts.29546ff8.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 12,
+                    "code": 72,
+                    "comment": 0,
+                    "filename": "build\\test\\test.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "build\\test\\test.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 17392,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 3,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "filename": "public\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 23,
+                    "filename": "public\\index.html"
+                },
+                {
+                    "filename": "public\\logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "public\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "public\\robots.txt"
+                },
+                {
+                    "blank": 12,
+                    "code": 72,
+                    "comment": 0,
+                    "filename": "public\\test\\test.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "public\\test\\test.html"
+                },
+                {
+                    "blank": 32,
+                    "code": 38,
+                    "comment": 12,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 2,
+                    "code": 19,
+                    "comment": 1,
+                    "filename": "src\\App.css"
+                },
+                {
+                    "blank": 19,
+                    "code": 86,
+                    "comment": 0,
+                    "filename": "src\\App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\App.test.js"
+                },
+                {
+                    "filename": "src\\assets\\edit.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\hearts.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\red.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\firebase.env"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\index.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 3,
+                    "filename": "src\\index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\logo.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\pages\\Components\\IFrame.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\pages\\Components\\IFrame.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 88,
+                    "comment": 0,
+                    "filename": "src\\pages\\Containers\\CategoryPage.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "src\\pages\\Containers\\Gamepage.css"
+                },
+                {
+                    "blank": 19,
+                    "code": 142,
+                    "comment": 0,
+                    "filename": "src\\pages\\Containers\\Gamepage.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\pages\\Containers\\Heading.module.css"
+                },
+                {
+                    "blank": 22,
+                    "code": 150,
+                    "comment": 3,
+                    "filename": "src\\pages\\Containers\\Homepage.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\reportWebVitals.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "src\\setupTests.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\shared\\Containers\\Container.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\shared\\Containers\\Container.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\shared\\Containers\\Container2.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\shared\\Containers\\RenderList.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\shared\\Contexts\\AuthContext.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src\\shared\\Contexts\\SearchContext.js"
+                },
+                {
+                    "blank": 56,
+                    "code": 175,
+                    "comment": 54,
+                    "filename": "src\\shared\\Functions\\Firebase.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 97,
+                    "comment": 10,
+                    "filename": "src\\shared\\Functions\\FirebaseCallbacks.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src\\shared\\Functions\\LoadMore.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\shared\\Functions\\useConstructor.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "src\\shared\\NavComponents\\Header.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "src\\shared\\NavComponents\\Header.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 62,
+                    "comment": 19,
+                    "filename": "src\\shared\\NavComponents\\Navlinks.css"
+                },
+                {
+                    "blank": 9,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "src\\shared\\NavComponents\\NavLinks.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Avatar\\Avatar.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Avatar\\Avatar.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Avatar\\Profile_Avatar.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Avatar\\Profile_Avatar.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Backdrop\\Backdrop.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Backdrop\\Backdrop.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Button\\Button.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Button\\Button.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Carousel\\Carousel.css"
+                },
+                {
+                    "blank": 6,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Carousel\\Carousel.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\DiscoverCards\\DiscoverCard.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\DiscoverCards\\DiscoverCard.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Dropdown\\Dropdown.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Dropdown\\Dropdown.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Form\\Form.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 52,
+                    "comment": 1,
+                    "filename": "src\\shared\\UIElements\\GameCard\\GameCard.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\GameCard\\GameCard.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 54,
+                    "comment": 1,
+                    "filename": "src\\shared\\UIElements\\GameCard\\GameCardSmall.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Input\\Input.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 6,
+                    "filename": "src\\shared\\UIElements\\Input\\Input.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 1,
+                    "filename": "src\\shared\\UIElements\\MiniBar\\Minibar.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\MiniBar\\Minibar.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\MiniBar\\MiniNav.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\MiniBar\\MiniNav.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Modal\\Modal.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Modal\\Modal.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Search\\Search.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Search\\Search.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\SideDrawer\\Sidedrawer.css"
+                },
+                {
+                    "blank": 15,
+                    "code": 86,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\SideDrawer\\Sidedrawer.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\SideDrawer\\SideNavElems\\SideNavElem.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\SideDrawer\\SideNavElems\\SideNavElem.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Spinner\\Spinner.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\Spinner\\Spinner.js"
+                },
+                {
+                    "filename": "src\\shared\\UIElements\\TestSpinner\\frames.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\TestSpinner\\index.html"
+                },
+                {
+                    "blank": 6,
+                    "code": 46,
+                    "comment": 1,
+                    "filename": "src\\shared\\UIElements\\TestSpinner\\TestSpinner.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\shared\\UIElements\\TestSpinner\\TestSpinner.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "src\\users\\Profile_Modal\\Profile_Modal.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src\\users\\Profile_Modal\\Profile_Modal.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 120,
+                    "comment": 1,
+                    "filename": "src\\users\\UserPage.css"
+                },
+                {
+                    "blank": 36,
+                    "code": 300,
+                    "comment": 3,
+                    "filename": "src\\users\\UserPage.js"
+                }
+            ]
+        }
+    ]
+}

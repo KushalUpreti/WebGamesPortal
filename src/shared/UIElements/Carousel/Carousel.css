@@ -1,0 +1,12 @@
+.Images {
+  height: 400px;
+  width: 80%;
+  cursor: pointer;
+}
+
+@media (max-width: 460px) {
+  .Images {
+    height: 150px;
+    width: 90%;
+  }
+}
