@@ -5,8 +5,8 @@
   text-transform: capitalize;
 }
 
-@media (max-width: 400px) {
-  .Category_h1 {
-    padding-left: 0;
+@media (max-width: 460px) {
+  .Empty {
+    display: none;
   }
 }

@@ -8,10 +8,7 @@ const MiniNav = (props) => {
                 <button onClick={props.favorites}>Favorites</button>
             </li>
             <li>
-                <button onClick={props.history}>Played Games</button>
-            </li>
-            <li>
-                <button>Link 2</button>
+                <button onClick={props.history}>History </button>
             </li>
         </ul>
     )

@@ -9,3 +9,11 @@
 .Profile_Avatar:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 460px) {
+  .Profile_Avatar {
+    margin-left: 10px;
+    width: 120px;
+    height: 120px;
+  }
+}

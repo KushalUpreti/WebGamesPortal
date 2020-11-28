@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
 
-.GameCard {
+.GameCardSmall {
   width: 174px;
   height: 225px;
   background-color: #1f1d1d;
@@ -14,48 +14,50 @@
   overflow: hidden;
 }
 
-.GameCard img {
+.GameCardSmall img {
   margin-top: 20px;
   height: 140px;
   width: 165px;
   border-radius: 10px;
 }
 
-.title {
+.title_small {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 21px;
   line-height: 1.6rem;
   margin-top: 10px;
 }
 
-.GameCard:hover {
+.GameCardSmall:hover {
   transform: scale(1.04);
   box-shadow: -2px -2px 30px 2px blue, 2px 2px 30px 2px red;
 }
 
 @media (max-width: 460px) {
-  .GameCard {
-    width: 120px;
-    height: 170px;
+  .GameCardSmall {
+    width: 90px;
+    height: 130px;
     box-shadow: -1px -1px 10px 1px red, 1px 1px 10px 1px blue;
-    margin-right: 20px;
+    margin-right: 5px;
     /* text-align: center; */
   }
 
-  .GameCard img {
-    margin-top: 15px;
-    height: 110px;
-    width: 110px;
+  .GameCardSmall img {
+    margin-top: 10px;
+    height: 85px;
+    width: 85px;
     border-radius: 10px;
   }
 
-  .GameCard:hover {
+  .GameCardSmall:hover {
     transform: scale(1.04);
     box-shadow: -1px -1px 10px 1px blue, 1px 1px 10px 1px red;
   }
 
-  .title {
-    font-size: 18px;
-    line-height: 1.2rem;
+  .title_small {
+    font-size: 14px;
+    line-height: 1.1rem;
+    margin: 0;
+    margin-top: 2px;
   }
 }

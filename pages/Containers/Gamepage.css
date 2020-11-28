@@ -31,8 +31,31 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 460px) {
+  .Favorites_h3 {
+    font-size: 18px;
+    margin: 0;
+    margin-left: auto;
+  }
+
   .Favorites_h1 {
-    padding: 0;
+    font-size: 25px;
+  }
+
+  .GameTitle {
+    color: white;
+    font-size: 25px;
+    display: inline-flex;
+  }
+
+  .Favorites_img {
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+  }
+
+  .TopDiv {
+    display: flex;
+    flex-wrap: wrap;
   }
 }

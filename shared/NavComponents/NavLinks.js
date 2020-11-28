@@ -7,7 +7,7 @@ import Avatar from '../UIElements/Avatar/Avatar';
 import { useHistory } from 'react-router-dom';
 
 
-const NavLinks = (props) => {
+const NavLinks = () => {
     const history = useHistory();
 
     const auth = useContext(AuthContext);
