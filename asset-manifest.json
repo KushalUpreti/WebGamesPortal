@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/WebGamesPortal/static/css/main.4da112c8.chunk.css",
-    "main.js": "/WebGamesPortal/static/js/main.e208e303.chunk.js",
-    "main.js.map": "/WebGamesPortal/static/js/main.e208e303.chunk.js.map",
+    "main.js": "/WebGamesPortal/static/js/main.e6092d82.chunk.js",
+    "main.js.map": "/WebGamesPortal/static/js/main.e6092d82.chunk.js.map",
     "runtime-main.js": "/WebGamesPortal/static/js/runtime-main.376b71ef.js",
     "runtime-main.js.map": "/WebGamesPortal/static/js/runtime-main.376b71ef.js.map",
     "static/css/2.55d8add8.chunk.css": "/WebGamesPortal/static/css/2.55d8add8.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.55d8add8.chunk.css",
     "static/js/2.b4ba6dcd.chunk.js",
     "static/css/main.4da112c8.chunk.css",
-    "static/js/main.e208e303.chunk.js"
+    "static/js/main.e6092d82.chunk.js"
   ]
 }
